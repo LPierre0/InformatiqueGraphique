@@ -2,8 +2,8 @@
 #define UTILS_H
 
 #include "include.h"
-#include "ray.h"
-#include "bezier.h"
+#include "objects/ray.h"
+#include "objects/bezier.h"
 
 typedef struct Vertex_s {
     glm::vec3 position;

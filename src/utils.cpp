@@ -1,6 +1,6 @@
 #include "utils.h"
-#include "bezier.h"
-#include "ray.h"
+#include "objects/bezier.h"
+#include "objects/ray.h"
 
 float ** initMatrice(int nbrow, int nbcol){
     float ** matrice = new float*[nbrow];

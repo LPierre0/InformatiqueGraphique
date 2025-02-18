@@ -17,5 +17,6 @@
 
 #include <learnopengl/shader_m.h>
 #include <learnopengl/camera.h>
+#include <stb_image.h>
 
 #endif

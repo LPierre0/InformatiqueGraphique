@@ -7,7 +7,8 @@ bool afficherParam = false;
 bool afficherNormale = false;
 bool surfaceChanged = false;
 bool afficherPolygone = true;
-ImVec4 color = ImVec4(0.0f, 0.5f, 1.0f, 1.0f);
+ImVec4 color = ImVec4(0.8f, 0.8f, 0.8f, 1.0f); // Gris clair
+
 std::vector<std::vector<glm::vec3>> controlP = {
     // Début de la première courbe
     {
@@ -72,7 +73,7 @@ bool rayon = false;
 
 void choixMode(){
     ImGui::Text("Choissisez le type d'affichage");
-    ImGui::Combo("##Type d'affichage", reinterpret_cast<int*>(&typeAff), "BezierCurve\0BezierSurface\0Sphere\0");
+    ImGui::Combo("##Type d'affichage", reinterpret_cast<int*>(&typeAff), "BezierCurve\0BezierSurface\0Sphere\0Scene\0");
     ImGui::NewLine();
 }
 
