@@ -8,13 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/pierre/Projects/InformatiqueGraphique/src/core/Application.cpp" "CMakeFiles/my-exec.dir/src/core/Application.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/core/Application.cpp.o.d"
+  "/home/pierre/Projects/InformatiqueGraphique/src/core/Object.cpp" "CMakeFiles/my-exec.dir/src/core/Object.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/core/Object.cpp.o.d"
+  "/home/pierre/Projects/InformatiqueGraphique/src/core/Renderer.cpp" "CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o.d"
   "/home/pierre/Projects/InformatiqueGraphique/src/main.cpp" "CMakeFiles/my-exec.dir/src/main.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/main.cpp.o.d"
-  "/home/pierre/Projects/InformatiqueGraphique/src/menu.cpp" "CMakeFiles/my-exec.dir/src/menu.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/menu.cpp.o.d"
-  "/home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.cpp" "CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o.d"
-  "/home/pierre/Projects/InformatiqueGraphique/src/objects/parallepipede.cpp" "CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o.d"
-  "/home/pierre/Projects/InformatiqueGraphique/src/objects/ray.cpp" "CMakeFiles/my-exec.dir/src/objects/ray.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/objects/ray.cpp.o.d"
-  "/home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.cpp" "CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o.d"
-  "/home/pierre/Projects/InformatiqueGraphique/src/shadowmap.cpp" "CMakeFiles/my-exec.dir/src/shadowmap.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/shadowmap.cpp.o.d"
+  "/home/pierre/Projects/InformatiqueGraphique/src/objects/Parallelepiped.cpp" "CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o.d"
   "/home/pierre/Projects/InformatiqueGraphique/src/stb_image.cpp" "CMakeFiles/my-exec.dir/src/stb_image.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/stb_image.cpp.o.d"
   "/home/pierre/Projects/InformatiqueGraphique/src/utils.cpp" "CMakeFiles/my-exec.dir/src/utils.cpp.o" "gcc" "CMakeFiles/my-exec.dir/src/utils.cpp.o.d"
   )

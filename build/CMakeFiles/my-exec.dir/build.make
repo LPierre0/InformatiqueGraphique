@@ -69,10 +69,52 @@ include CMakeFiles/my-exec.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/my-exec.dir/flags.make
 
+CMakeFiles/my-exec.dir/src/core/Application.cpp.o: CMakeFiles/my-exec.dir/flags.make
+CMakeFiles/my-exec.dir/src/core/Application.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/core/Application.cpp
+CMakeFiles/my-exec.dir/src/core/Application.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my-exec.dir/src/core/Application.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/core/Application.cpp.o -MF CMakeFiles/my-exec.dir/src/core/Application.cpp.o.d -o CMakeFiles/my-exec.dir/src/core/Application.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/core/Application.cpp
+
+CMakeFiles/my-exec.dir/src/core/Application.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/core/Application.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/core/Application.cpp > CMakeFiles/my-exec.dir/src/core/Application.cpp.i
+
+CMakeFiles/my-exec.dir/src/core/Application.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/core/Application.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/core/Application.cpp -o CMakeFiles/my-exec.dir/src/core/Application.cpp.s
+
+CMakeFiles/my-exec.dir/src/core/Object.cpp.o: CMakeFiles/my-exec.dir/flags.make
+CMakeFiles/my-exec.dir/src/core/Object.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/core/Object.cpp
+CMakeFiles/my-exec.dir/src/core/Object.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my-exec.dir/src/core/Object.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/core/Object.cpp.o -MF CMakeFiles/my-exec.dir/src/core/Object.cpp.o.d -o CMakeFiles/my-exec.dir/src/core/Object.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/core/Object.cpp
+
+CMakeFiles/my-exec.dir/src/core/Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/core/Object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/core/Object.cpp > CMakeFiles/my-exec.dir/src/core/Object.cpp.i
+
+CMakeFiles/my-exec.dir/src/core/Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/core/Object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/core/Object.cpp -o CMakeFiles/my-exec.dir/src/core/Object.cpp.s
+
+CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o: CMakeFiles/my-exec.dir/flags.make
+CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/core/Renderer.cpp
+CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o -MF CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o.d -o CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/core/Renderer.cpp
+
+CMakeFiles/my-exec.dir/src/core/Renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/core/Renderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/core/Renderer.cpp > CMakeFiles/my-exec.dir/src/core/Renderer.cpp.i
+
+CMakeFiles/my-exec.dir/src/core/Renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/core/Renderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/core/Renderer.cpp -o CMakeFiles/my-exec.dir/src/core/Renderer.cpp.s
+
 CMakeFiles/my-exec.dir/src/main.cpp.o: CMakeFiles/my-exec.dir/flags.make
 CMakeFiles/my-exec.dir/src/main.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/main.cpp
 CMakeFiles/my-exec.dir/src/main.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/my-exec.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my-exec.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/main.cpp.o -MF CMakeFiles/my-exec.dir/src/main.cpp.o.d -o CMakeFiles/my-exec.dir/src/main.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/main.cpp
 
 CMakeFiles/my-exec.dir/src/main.cpp.i: cmake_force
@@ -83,94 +125,24 @@ CMakeFiles/my-exec.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/main.cpp -o CMakeFiles/my-exec.dir/src/main.cpp.s
 
-CMakeFiles/my-exec.dir/src/menu.cpp.o: CMakeFiles/my-exec.dir/flags.make
-CMakeFiles/my-exec.dir/src/menu.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/menu.cpp
-CMakeFiles/my-exec.dir/src/menu.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/my-exec.dir/src/menu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/menu.cpp.o -MF CMakeFiles/my-exec.dir/src/menu.cpp.o.d -o CMakeFiles/my-exec.dir/src/menu.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/menu.cpp
+CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o: CMakeFiles/my-exec.dir/flags.make
+CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/objects/Parallelepiped.cpp
+CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o -MF CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o.d -o CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/objects/Parallelepiped.cpp
 
-CMakeFiles/my-exec.dir/src/menu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/menu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/menu.cpp > CMakeFiles/my-exec.dir/src/menu.cpp.i
+CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/objects/Parallelepiped.cpp > CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.i
 
-CMakeFiles/my-exec.dir/src/menu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/menu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/menu.cpp -o CMakeFiles/my-exec.dir/src/menu.cpp.s
-
-CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o: CMakeFiles/my-exec.dir/flags.make
-CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.cpp
-CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o -MF CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o.d -o CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.cpp
-
-CMakeFiles/my-exec.dir/src/objects/bezier.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/objects/bezier.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.cpp > CMakeFiles/my-exec.dir/src/objects/bezier.cpp.i
-
-CMakeFiles/my-exec.dir/src/objects/bezier.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/objects/bezier.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.cpp -o CMakeFiles/my-exec.dir/src/objects/bezier.cpp.s
-
-CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o: CMakeFiles/my-exec.dir/flags.make
-CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/objects/parallepipede.cpp
-CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o -MF CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o.d -o CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/objects/parallepipede.cpp
-
-CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/objects/parallepipede.cpp > CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.i
-
-CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/objects/parallepipede.cpp -o CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.s
-
-CMakeFiles/my-exec.dir/src/objects/ray.cpp.o: CMakeFiles/my-exec.dir/flags.make
-CMakeFiles/my-exec.dir/src/objects/ray.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.cpp
-CMakeFiles/my-exec.dir/src/objects/ray.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my-exec.dir/src/objects/ray.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/objects/ray.cpp.o -MF CMakeFiles/my-exec.dir/src/objects/ray.cpp.o.d -o CMakeFiles/my-exec.dir/src/objects/ray.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.cpp
-
-CMakeFiles/my-exec.dir/src/objects/ray.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/objects/ray.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.cpp > CMakeFiles/my-exec.dir/src/objects/ray.cpp.i
-
-CMakeFiles/my-exec.dir/src/objects/ray.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/objects/ray.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.cpp -o CMakeFiles/my-exec.dir/src/objects/ray.cpp.s
-
-CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o: CMakeFiles/my-exec.dir/flags.make
-CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.cpp
-CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o -MF CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o.d -o CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.cpp
-
-CMakeFiles/my-exec.dir/src/objects/sphere.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/objects/sphere.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.cpp > CMakeFiles/my-exec.dir/src/objects/sphere.cpp.i
-
-CMakeFiles/my-exec.dir/src/objects/sphere.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/objects/sphere.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.cpp -o CMakeFiles/my-exec.dir/src/objects/sphere.cpp.s
-
-CMakeFiles/my-exec.dir/src/shadowmap.cpp.o: CMakeFiles/my-exec.dir/flags.make
-CMakeFiles/my-exec.dir/src/shadowmap.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/shadowmap.cpp
-CMakeFiles/my-exec.dir/src/shadowmap.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my-exec.dir/src/shadowmap.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/shadowmap.cpp.o -MF CMakeFiles/my-exec.dir/src/shadowmap.cpp.o.d -o CMakeFiles/my-exec.dir/src/shadowmap.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/shadowmap.cpp
-
-CMakeFiles/my-exec.dir/src/shadowmap.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/my-exec.dir/src/shadowmap.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pierre/Projects/InformatiqueGraphique/src/shadowmap.cpp > CMakeFiles/my-exec.dir/src/shadowmap.cpp.i
-
-CMakeFiles/my-exec.dir/src/shadowmap.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/shadowmap.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/shadowmap.cpp -o CMakeFiles/my-exec.dir/src/shadowmap.cpp.s
+CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pierre/Projects/InformatiqueGraphique/src/objects/Parallelepiped.cpp -o CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.s
 
 CMakeFiles/my-exec.dir/src/stb_image.cpp.o: CMakeFiles/my-exec.dir/flags.make
 CMakeFiles/my-exec.dir/src/stb_image.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/stb_image.cpp
 CMakeFiles/my-exec.dir/src/stb_image.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/my-exec.dir/src/stb_image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my-exec.dir/src/stb_image.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/stb_image.cpp.o -MF CMakeFiles/my-exec.dir/src/stb_image.cpp.o.d -o CMakeFiles/my-exec.dir/src/stb_image.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/stb_image.cpp
 
 CMakeFiles/my-exec.dir/src/stb_image.cpp.i: cmake_force
@@ -184,7 +156,7 @@ CMakeFiles/my-exec.dir/src/stb_image.cpp.s: cmake_force
 CMakeFiles/my-exec.dir/src/utils.cpp.o: CMakeFiles/my-exec.dir/flags.make
 CMakeFiles/my-exec.dir/src/utils.cpp.o: /home/pierre/Projects/InformatiqueGraphique/src/utils.cpp
 CMakeFiles/my-exec.dir/src/utils.cpp.o: CMakeFiles/my-exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/my-exec.dir/src/utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my-exec.dir/src/utils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my-exec.dir/src/utils.cpp.o -MF CMakeFiles/my-exec.dir/src/utils.cpp.o.d -o CMakeFiles/my-exec.dir/src/utils.cpp.o -c /home/pierre/Projects/InformatiqueGraphique/src/utils.cpp
 
 CMakeFiles/my-exec.dir/src/utils.cpp.i: cmake_force
@@ -197,26 +169,22 @@ CMakeFiles/my-exec.dir/src/utils.cpp.s: cmake_force
 
 # Object files for target my-exec
 my__exec_OBJECTS = \
+"CMakeFiles/my-exec.dir/src/core/Application.cpp.o" \
+"CMakeFiles/my-exec.dir/src/core/Object.cpp.o" \
+"CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o" \
 "CMakeFiles/my-exec.dir/src/main.cpp.o" \
-"CMakeFiles/my-exec.dir/src/menu.cpp.o" \
-"CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o" \
-"CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o" \
-"CMakeFiles/my-exec.dir/src/objects/ray.cpp.o" \
-"CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o" \
-"CMakeFiles/my-exec.dir/src/shadowmap.cpp.o" \
+"CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o" \
 "CMakeFiles/my-exec.dir/src/stb_image.cpp.o" \
 "CMakeFiles/my-exec.dir/src/utils.cpp.o"
 
 # External object files for target my-exec
 my__exec_EXTERNAL_OBJECTS =
 
+/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/core/Application.cpp.o
+/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/core/Object.cpp.o
+/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/main.cpp.o
-/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/menu.cpp.o
-/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o
-/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o
-/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/objects/ray.cpp.o
-/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o
-/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/shadowmap.cpp.o
+/home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/stb_image.cpp.o
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/src/utils.cpp.o
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/build.make
@@ -224,7 +192,7 @@ my__exec_EXTERNAL_OBJECTS =
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: libGLAD.a
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: libIMGUI.a
 /home/pierre/Projects/InformatiqueGraphique/bin/my-exec: CMakeFiles/my-exec.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable /home/pierre/Projects/InformatiqueGraphique/bin/my-exec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/pierre/Projects/InformatiqueGraphique/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable /home/pierre/Projects/InformatiqueGraphique/bin/my-exec"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my-exec.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

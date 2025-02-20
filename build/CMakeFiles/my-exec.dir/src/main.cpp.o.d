@@ -1,7 +1,8 @@
 CMakeFiles/my-exec.dir/src/main.cpp.o: \
  /home/pierre/Projects/InformatiqueGraphique/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/pierre/Projects/InformatiqueGraphique/src/include.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/Object.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/../include.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -510,14 +511,10 @@ CMakeFiles/my-exec.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/iostream \
  /home/pierre/Projects/InformatiqueGraphique/includes/learnopengl/camera.h \
  /home/pierre/Projects/InformatiqueGraphique/includes/stb_image.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/../include.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/../menu.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/../include.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.h \
- /home/pierre/Projects/InformatiqueGraphique/src/utils.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.h \
- /home/pierre/Projects/InformatiqueGraphique/src/menu.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/parallepipede.h
+ /home/pierre/Projects/InformatiqueGraphique/src/core/Application.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/Object.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/Renderer.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/../objects/Parallelepiped.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/../objects/../include.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/../objects/../core/Object.h \
+ /home/pierre/Projects/InformatiqueGraphique/src/core/../objects/../utils.h

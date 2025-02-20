@@ -27,9 +27,9 @@ set(NAME "my-exec")
 file(GLOB SOURCE
     "src/*.h"
     "src/*.cpp"
-    "src/shaders/*.vs"
-    "src/shaders/*.fs"
+    "shaders/*"
     "src/objects/*"
+    "src/core/*"
 )
 
 # Crée l'exécutable

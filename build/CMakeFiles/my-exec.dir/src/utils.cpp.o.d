@@ -1,7 +1,6 @@
 CMakeFiles/my-exec.dir/src/utils.cpp.o: \
  /home/pierre/Projects/InformatiqueGraphique/src/utils.cpp \
  /usr/include/stdc-predef.h \
- /home/pierre/Projects/InformatiqueGraphique/src/utils.h \
  /home/pierre/Projects/InformatiqueGraphique/src/include.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -510,11 +509,4 @@ CMakeFiles/my-exec.dir/src/utils.cpp.o: \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/iostream \
  /home/pierre/Projects/InformatiqueGraphique/includes/learnopengl/camera.h \
- /home/pierre/Projects/InformatiqueGraphique/includes/stb_image.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/../include.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/bezier.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/ray.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/../menu.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/../include.h \
- /home/pierre/Projects/InformatiqueGraphique/src/objects/sphere.h
+ /home/pierre/Projects/InformatiqueGraphique/includes/stb_image.h

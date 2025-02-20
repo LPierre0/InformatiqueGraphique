@@ -336,6 +336,78 @@ includes/imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/IMGUI.dir/build.make CMakeFiles/IMGUI.dir/includes/imgui/imgui_widgets.cpp.s
 .PHONY : includes/imgui/imgui_widgets.cpp.s
 
+src/core/Application.o: src/core/Application.cpp.o
+.PHONY : src/core/Application.o
+
+# target to build an object file
+src/core/Application.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Application.cpp.o
+.PHONY : src/core/Application.cpp.o
+
+src/core/Application.i: src/core/Application.cpp.i
+.PHONY : src/core/Application.i
+
+# target to preprocess a source file
+src/core/Application.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Application.cpp.i
+.PHONY : src/core/Application.cpp.i
+
+src/core/Application.s: src/core/Application.cpp.s
+.PHONY : src/core/Application.s
+
+# target to generate assembly for a file
+src/core/Application.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Application.cpp.s
+.PHONY : src/core/Application.cpp.s
+
+src/core/Object.o: src/core/Object.cpp.o
+.PHONY : src/core/Object.o
+
+# target to build an object file
+src/core/Object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Object.cpp.o
+.PHONY : src/core/Object.cpp.o
+
+src/core/Object.i: src/core/Object.cpp.i
+.PHONY : src/core/Object.i
+
+# target to preprocess a source file
+src/core/Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Object.cpp.i
+.PHONY : src/core/Object.cpp.i
+
+src/core/Object.s: src/core/Object.cpp.s
+.PHONY : src/core/Object.s
+
+# target to generate assembly for a file
+src/core/Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Object.cpp.s
+.PHONY : src/core/Object.cpp.s
+
+src/core/Renderer.o: src/core/Renderer.cpp.o
+.PHONY : src/core/Renderer.o
+
+# target to build an object file
+src/core/Renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Renderer.cpp.o
+.PHONY : src/core/Renderer.cpp.o
+
+src/core/Renderer.i: src/core/Renderer.cpp.i
+.PHONY : src/core/Renderer.i
+
+# target to preprocess a source file
+src/core/Renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Renderer.cpp.i
+.PHONY : src/core/Renderer.cpp.i
+
+src/core/Renderer.s: src/core/Renderer.cpp.s
+.PHONY : src/core/Renderer.s
+
+# target to generate assembly for a file
+src/core/Renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/core/Renderer.cpp.s
+.PHONY : src/core/Renderer.cpp.s
+
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -384,149 +456,29 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/menu.o: src/menu.cpp.o
-.PHONY : src/menu.o
+src/objects/Parallelepiped.o: src/objects/Parallelepiped.cpp.o
+.PHONY : src/objects/Parallelepiped.o
 
 # target to build an object file
-src/menu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/menu.cpp.o
-.PHONY : src/menu.cpp.o
+src/objects/Parallelepiped.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.o
+.PHONY : src/objects/Parallelepiped.cpp.o
 
-src/menu.i: src/menu.cpp.i
-.PHONY : src/menu.i
-
-# target to preprocess a source file
-src/menu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/menu.cpp.i
-.PHONY : src/menu.cpp.i
-
-src/menu.s: src/menu.cpp.s
-.PHONY : src/menu.s
-
-# target to generate assembly for a file
-src/menu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/menu.cpp.s
-.PHONY : src/menu.cpp.s
-
-src/objects/bezier.o: src/objects/bezier.cpp.o
-.PHONY : src/objects/bezier.o
-
-# target to build an object file
-src/objects/bezier.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/bezier.cpp.o
-.PHONY : src/objects/bezier.cpp.o
-
-src/objects/bezier.i: src/objects/bezier.cpp.i
-.PHONY : src/objects/bezier.i
+src/objects/Parallelepiped.i: src/objects/Parallelepiped.cpp.i
+.PHONY : src/objects/Parallelepiped.i
 
 # target to preprocess a source file
-src/objects/bezier.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/bezier.cpp.i
-.PHONY : src/objects/bezier.cpp.i
+src/objects/Parallelepiped.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.i
+.PHONY : src/objects/Parallelepiped.cpp.i
 
-src/objects/bezier.s: src/objects/bezier.cpp.s
-.PHONY : src/objects/bezier.s
-
-# target to generate assembly for a file
-src/objects/bezier.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/bezier.cpp.s
-.PHONY : src/objects/bezier.cpp.s
-
-src/objects/parallepipede.o: src/objects/parallepipede.cpp.o
-.PHONY : src/objects/parallepipede.o
-
-# target to build an object file
-src/objects/parallepipede.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.o
-.PHONY : src/objects/parallepipede.cpp.o
-
-src/objects/parallepipede.i: src/objects/parallepipede.cpp.i
-.PHONY : src/objects/parallepipede.i
-
-# target to preprocess a source file
-src/objects/parallepipede.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.i
-.PHONY : src/objects/parallepipede.cpp.i
-
-src/objects/parallepipede.s: src/objects/parallepipede.cpp.s
-.PHONY : src/objects/parallepipede.s
+src/objects/Parallelepiped.s: src/objects/Parallelepiped.cpp.s
+.PHONY : src/objects/Parallelepiped.s
 
 # target to generate assembly for a file
-src/objects/parallepipede.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/parallepipede.cpp.s
-.PHONY : src/objects/parallepipede.cpp.s
-
-src/objects/ray.o: src/objects/ray.cpp.o
-.PHONY : src/objects/ray.o
-
-# target to build an object file
-src/objects/ray.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/ray.cpp.o
-.PHONY : src/objects/ray.cpp.o
-
-src/objects/ray.i: src/objects/ray.cpp.i
-.PHONY : src/objects/ray.i
-
-# target to preprocess a source file
-src/objects/ray.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/ray.cpp.i
-.PHONY : src/objects/ray.cpp.i
-
-src/objects/ray.s: src/objects/ray.cpp.s
-.PHONY : src/objects/ray.s
-
-# target to generate assembly for a file
-src/objects/ray.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/ray.cpp.s
-.PHONY : src/objects/ray.cpp.s
-
-src/objects/sphere.o: src/objects/sphere.cpp.o
-.PHONY : src/objects/sphere.o
-
-# target to build an object file
-src/objects/sphere.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/sphere.cpp.o
-.PHONY : src/objects/sphere.cpp.o
-
-src/objects/sphere.i: src/objects/sphere.cpp.i
-.PHONY : src/objects/sphere.i
-
-# target to preprocess a source file
-src/objects/sphere.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/sphere.cpp.i
-.PHONY : src/objects/sphere.cpp.i
-
-src/objects/sphere.s: src/objects/sphere.cpp.s
-.PHONY : src/objects/sphere.s
-
-# target to generate assembly for a file
-src/objects/sphere.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/sphere.cpp.s
-.PHONY : src/objects/sphere.cpp.s
-
-src/shadowmap.o: src/shadowmap.cpp.o
-.PHONY : src/shadowmap.o
-
-# target to build an object file
-src/shadowmap.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/shadowmap.cpp.o
-.PHONY : src/shadowmap.cpp.o
-
-src/shadowmap.i: src/shadowmap.cpp.i
-.PHONY : src/shadowmap.i
-
-# target to preprocess a source file
-src/shadowmap.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/shadowmap.cpp.i
-.PHONY : src/shadowmap.cpp.i
-
-src/shadowmap.s: src/shadowmap.cpp.s
-.PHONY : src/shadowmap.s
-
-# target to generate assembly for a file
-src/shadowmap.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/shadowmap.cpp.s
-.PHONY : src/shadowmap.cpp.s
+src/objects/Parallelepiped.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my-exec.dir/build.make CMakeFiles/my-exec.dir/src/objects/Parallelepiped.cpp.s
+.PHONY : src/objects/Parallelepiped.cpp.s
 
 src/stb_image.o: src/stb_image.cpp.o
 .PHONY : src/stb_image.o
@@ -612,30 +564,24 @@ help:
 	@echo "... includes/imgui/imgui_widgets.o"
 	@echo "... includes/imgui/imgui_widgets.i"
 	@echo "... includes/imgui/imgui_widgets.s"
+	@echo "... src/core/Application.o"
+	@echo "... src/core/Application.i"
+	@echo "... src/core/Application.s"
+	@echo "... src/core/Object.o"
+	@echo "... src/core/Object.i"
+	@echo "... src/core/Object.s"
+	@echo "... src/core/Renderer.o"
+	@echo "... src/core/Renderer.i"
+	@echo "... src/core/Renderer.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/menu.o"
-	@echo "... src/menu.i"
-	@echo "... src/menu.s"
-	@echo "... src/objects/bezier.o"
-	@echo "... src/objects/bezier.i"
-	@echo "... src/objects/bezier.s"
-	@echo "... src/objects/parallepipede.o"
-	@echo "... src/objects/parallepipede.i"
-	@echo "... src/objects/parallepipede.s"
-	@echo "... src/objects/ray.o"
-	@echo "... src/objects/ray.i"
-	@echo "... src/objects/ray.s"
-	@echo "... src/objects/sphere.o"
-	@echo "... src/objects/sphere.i"
-	@echo "... src/objects/sphere.s"
-	@echo "... src/shadowmap.o"
-	@echo "... src/shadowmap.i"
-	@echo "... src/shadowmap.s"
+	@echo "... src/objects/Parallelepiped.o"
+	@echo "... src/objects/Parallelepiped.i"
+	@echo "... src/objects/Parallelepiped.s"
 	@echo "... src/stb_image.o"
 	@echo "... src/stb_image.i"
 	@echo "... src/stb_image.s"
