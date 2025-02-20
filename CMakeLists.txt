@@ -30,6 +30,7 @@ file(GLOB SOURCE
     "shaders/*"
     "src/objects/*"
     "src/core/*"
+    "src/manager/*"
 )
 
 # Crée l'exécutable

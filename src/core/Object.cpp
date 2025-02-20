@@ -10,6 +10,7 @@ Object::Object(GLuint texture, glm::vec3 center)
     glGenVertexArrays(1, &this->VAO);
     glGenBuffers(1, &this->VBO);
     glGenBuffers(1, &this->EBO);
+    
     std::cout << "Objet construit proprement. \n" << std::endl;
 }
 
@@ -62,7 +63,7 @@ void Object::save_final_data() {
     file.close();
 }
 
-void Object::bind() const{
+void Object::update(){
     
     glBindTexture(GL_TEXTURE_2D, texture);
     glBindVertexArray(VAO);
@@ -81,10 +82,14 @@ void Object::bind() const{
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
-
 }
 
 
+
+void Object::bind() const{
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindVertexArray(VAO);
+}
 
 
 

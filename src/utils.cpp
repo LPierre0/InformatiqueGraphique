@@ -9,3 +9,10 @@ glm::vec3 compute_normal(const glm::vec3& p1, const glm::vec3& p2, const glm::ve
     return normal;
 }
 
+std::string get_executable_path() {
+    return std::filesystem::current_path().string();
+}
+
+std::string get_texture_path(const std::string& filename) {
+    return get_executable_path() + "/../textures/" + filename;
+}

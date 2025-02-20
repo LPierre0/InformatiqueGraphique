@@ -13,6 +13,7 @@ Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, float width, fl
         this->calculate_normals();
         this->calculate_texture_coordinates();
         this->calculate_final();
+        this->update();
 }
 
 
@@ -99,47 +100,51 @@ void Parallelepiped::calculate_normals(){
 
 
     for (int i = 0; i < nb_points; i++){
-        
         normals.push_back(glm::normalize(norm_to_treat[i]));
-        std::cout << norm_to_treat[i][0] << norm_to_treat[i][1] << norm_to_treat[i][2] << std::endl;
     }
     
 }
 
 
 void Parallelepiped::calculate_texture_coordinates(){
-    // Face avant
-    texCoords.push_back({1.0f, 1.0f});
-    texCoords.push_back({0.0f, 1.0f});
-    texCoords.push_back({0.0f, 0.0f});
-    texCoords.push_back({1.0f, 0.0f});
 
-    texCoords.push_back({1.0f, 1.0f});
-    texCoords.push_back({0.0f, 1.0f});
-    texCoords.push_back({0.0f, 0.0f});
-    texCoords.push_back({1.0f, 0.0f});
+    // Face Avant
+    texCoords.push_back({1.0f * width, 1.0f * height});
+    texCoords.push_back({0.0f * width, 1.0f * height});
+    texCoords.push_back({0.0f * width, 0.0f * height});
+    texCoords.push_back({1.0f * width, 0.0f * height});
 
-    texCoords.push_back({1.0f, 1.0f});
-    texCoords.push_back({0.0f, 1.0f});
-    texCoords.push_back({0.0f, 0.0f});
-    texCoords.push_back({1.0f, 0.0f});
+    // Face Arriere
+    texCoords.push_back({1.0f * width, 1.0f * height});
+    texCoords.push_back({0.0f * width, 1.0f * height});
+    texCoords.push_back({0.0f * width, 0.0f * height});
+    texCoords.push_back({1.0f * width, 0.0f * height});
 
-    texCoords.push_back({1.0f, 1.0f});
-    texCoords.push_back({0.0f, 1.0f});
-    texCoords.push_back({0.0f, 0.0f});
-    texCoords.push_back({1.0f, 0.0f});
 
-    texCoords.push_back({1.0f, 1.0f});
-    texCoords.push_back({0.0f, 1.0f});
-    texCoords.push_back({0.0f, 0.0f});
-    texCoords.push_back({1.0f, 0.0f});
+    // Face inf
+    texCoords.push_back({1.0f * width, 1.0f * depth});
+    texCoords.push_back({0.0f * width, 1.0f * depth});
+    texCoords.push_back({0.0f * width, 0.0f * depth});
+    texCoords.push_back({1.0f * width, 0.0f * depth});
 
-    texCoords.push_back({1.0f, 1.0f});
-    texCoords.push_back({0.0f, 1.0f});
-    texCoords.push_back({0.0f, 0.0f});
-    texCoords.push_back({1.0f, 0.0f});
+    // Face sup
+    texCoords.push_back({1.0f * width, 1.0f * depth});
+    texCoords.push_back({0.0f * width, 1.0f * depth});
+    texCoords.push_back({0.0f * width, 0.0f * depth});
+    texCoords.push_back({1.0f * width, 0.0f * depth});
 
-    
+    // Face Gauche
+    texCoords.push_back({1.0f * depth, 1.0f * height});
+    texCoords.push_back({0.0f * depth, 1.0f * height});
+    texCoords.push_back({0.0f * depth, 0.0f * height});
+    texCoords.push_back({1.0f * depth, 0.0f * height});
+
+    // Face droite
+    texCoords.push_back({1.0f * depth, 1.0f * height});
+    texCoords.push_back({0.0f * depth, 1.0f * height});
+    texCoords.push_back({0.0f * depth, 0.0f * height});
+    texCoords.push_back({1.0f * depth, 0.0f * height});
+
 }
 
 

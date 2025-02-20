@@ -3,7 +3,6 @@
 
 #include "../include.h"
 #include "../core/Object.h"
-#include "../utils.h"
 
 
 class Parallelepiped : public Object {

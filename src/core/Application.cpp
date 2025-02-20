@@ -135,44 +135,29 @@ void Application::run(){
     std::cout << "Launching application\n" << std::endl;
 
 
+    TextureManager texture_manager;
 
-
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    // définit les options de la texture actuellement liée
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // charge et génère la texture
-    int width_text, height_text, nrChannels;
-
-    unsigned char *data = stbi_load("/home/pierre/Projects/InformatiqueGraphique/textures/alde.jpg", &width_text, &height_text, &nrChannels, 0);
-    if (data)
-    {
-        std::cout << "Width: " << width_text << ", Height: " << height_text << ", Channels: " << nrChannels << std::endl;
-
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width_text, height_text, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
+    unsigned int texture_or = texture_manager.load_texture("or.jpg");
+    if (texture_or == -1){
+        return;
     }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-        return ;
+
+    unsigned int texture_brick = texture_manager.load_texture("brick.jpg");
+    if (texture_brick == -1){
+        return;
     }
-    stbi_image_free(data);
 
-    Parallelepiped para(texture, glm::vec3({0.0f, 0.0f, 0.0f}), 1.0f, 1.0f, 1.0f);
 
-    para.save_final_data();
+
+    Parallelepiped para(texture_or, glm::vec3({0.0f, 0.0f, 0.0f}), 0.1f, 1.0f, 1.0f);
+    Parallelepiped para_2(texture_brick, glm::vec3({0.45f, -0.45f, 0.0f}), 1.0f, 0.1f, 1.0f);
+    Parallelepiped para_3(texture_or, glm::vec3({1.0f, 0.0f, 0.0f}), 0.1f, 1.0f, 1.0f);
+    Parallelepiped para_4(texture_or, glm::vec3({0.45f, 0.0f, +0.45f}), 1.0f, 1.0f, 0.1f);
+
+
     Renderer rend;
     
     Shader main_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/main.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/main.fs");
-
-
-
 
 
     while (!glfwWindowShouldClose(window)) {        
@@ -206,6 +191,9 @@ void Application::run(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         rend.draw(para);
+        rend.draw(para_2);
+        rend.draw(para_3);
+        rend.draw(para_4);
 
 
         glfwSwapBuffers(window);

@@ -5,6 +5,7 @@
 #include "Object.h"
 #include "Renderer.h"
 #include "../objects/Parallelepiped.h"
+#include "../manager/TextureManager.h"
 
 
 

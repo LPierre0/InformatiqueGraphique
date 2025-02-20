@@ -11,7 +11,8 @@ class Object
         ~Object();
 
         void bind() const;
-
+        void update();
+        
         void bind_vao();
         unsigned int get_vao();
         unsigned int get_vbo();
