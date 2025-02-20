@@ -15,8 +15,6 @@ class Parallelepiped : public Object {
 
         void calculate_normals();
 
-        void calculate_normals_inv();
-
         void calculate_texture_coordinates();
 
     private:

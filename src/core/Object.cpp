@@ -7,7 +7,6 @@ Object::Object(GLuint texture, glm::vec3 center)
     this->center = center;
     this->texture = texture;
 
-
     glGenVertexArrays(1, &this->VAO);
     glGenBuffers(1, &this->VBO);
     glGenBuffers(1, &this->EBO);
@@ -27,7 +26,6 @@ void Object::calculate_final(){
     for (int i = 0; i < points.size(); i++){
         glm::vec3 point = points[i];
         glm::vec3 normal = normals[i];
-        glm::vec3 normalInv = normalsInv[i];
         glm::vec2 texCoord = texCoords[i];
 
 
@@ -39,15 +37,30 @@ void Object::calculate_final(){
         final.push_back(normal[1]);
         final.push_back(normal[2]);
 
-        final.push_back(normalInv[0]);
-        final.push_back(normalInv[1]);
-        final.push_back(normalInv[2]);
-
         final.push_back(texCoord[0]);
         final.push_back(texCoord[1]);
     }
 }
 
+
+void Object::save_final_data() {
+    std::ofstream file("/home/pierre/Projects/InformatiqueGraphique/data_points.txt"); 
+    std::cout << "saving final data" << std::endl;
+    if (!file) {
+        std::cerr << "Erreur d'ouverture du fichier" << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < final.size(); i++) {
+        file << final[i];
+        if ((i + 1) % 8 == 0) 
+            file << '\n'; 
+        else 
+            file << ";";  
+    }
+
+    file.close();
+}
 
 void Object::bind() const{
     
@@ -59,18 +72,16 @@ void Object::bind() const{
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(int), indices.data(), GL_STATIC_DRAW);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(6 * sizeof(float)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
-    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(9 * sizeof(float)));
 
-    glEnableVertexAttribArray(3);
 }
 
 

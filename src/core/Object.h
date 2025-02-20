@@ -23,13 +23,14 @@ class Object
 
         void calculate_final();
 
+        void save_final_data();
+
         void change_texture(GLuint new_texture);
         GLuint get_texture();
 
         unsigned int VAO, VBO, EBO;
         std::vector<glm::vec3> points;
         std::vector<glm::vec3> normals;
-        std::vector<glm::vec3> normalsInv;
         std::vector<glm::vec2> texCoords;
         std::vector<int> indices;
 

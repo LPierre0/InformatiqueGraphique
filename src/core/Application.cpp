@@ -2,10 +2,11 @@
 
 
 Application::Application(int width, int height, const char* title)
-    : camera(glm::vec3(0.0f, 1.0f, 6.0f)), lightInitialPos(0.0f, 0.0f, 0.0f){
+    : camera(glm::vec3(0.0f, 0.0f, -10.0f)), lightInitialPos(0.0f, 0.0f, 0.0f){
 
     // Camera direction
 
+    camera.ProcessMouseMovement(width * 2 - 250, 0);
 
 
     this->lastX = width / 2.0f;
@@ -130,19 +131,6 @@ void Application::scroll_callback(GLFWwindow* window, double xoffset, double yof
 
 void Application::run(){
 
-    std::vector<glm::vec3> points = {
-        { -0.5f, -0.5f, 0.0f }, // Sommet bas gauche
-        {  0.5f, -0.5f, 0.0f }, // Sommet bas droit
-        {  0.0f,  0.5f, 0.0f }  // Sommet en haut
-    };
-
-    std::vector<glm::vec2> texCoords = {
-        {0.0f, 0.0f},
-        {1.0f, 0.0f},
-        {1.0f, 1.0f}
-    };
-
-    std::vector<int> indices = { 0, 1, 2 };
 
     std::cout << "Launching application\n" << std::endl;
 
@@ -153,9 +141,10 @@ void Application::run(){
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
     // définit les options de la texture actuellement liée
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);   
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    // set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // charge et génère la texture
     int width_text, height_text, nrChannels;
@@ -175,8 +164,9 @@ void Application::run(){
     }
     stbi_image_free(data);
 
-    Parallelepiped para(texture, glm::vec3({0.0f, 0.0f, 0.0f}), 3.0f, 0.3f, 1.0f);
+    Parallelepiped para(texture, glm::vec3({0.0f, 0.0f, 0.0f}), 1.0f, 1.0f, 1.0f);
 
+    para.save_final_data();
     Renderer rend;
     
     Shader main_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/main.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/main.fs");
