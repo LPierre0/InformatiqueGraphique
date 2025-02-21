@@ -11,7 +11,7 @@ public:
     Renderer();
 
 
-    void draw(const Object& object);
+    void draw(const std::vector<std::unique_ptr<Object>>& object);
 
 };
 

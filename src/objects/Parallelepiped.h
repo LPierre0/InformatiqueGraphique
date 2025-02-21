@@ -5,16 +5,17 @@
 #include "../core/Object.h"
 
 
-class Parallelepiped : public Object {
+class Parallelepiped : public Object 
+{
     public:
         Parallelepiped(GLuint texture, glm::vec3 center, float width, float height, float depth);
 
 
-        void calculate_points();
+        void compute_points();
 
-        void calculate_normals();
+        void compute_normals();
 
-        void calculate_texture_coordinates();
+        void compute_texture_coordinates();
 
     private:
 

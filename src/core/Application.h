@@ -5,8 +5,9 @@
 #include "Object.h"
 #include "Renderer.h"
 #include "../objects/Parallelepiped.h"
+#include "../objects/Sphere.h"
 #include "../manager/TextureManager.h"
-
+#include "../objects/Quad.h"
 
 
 class Application {

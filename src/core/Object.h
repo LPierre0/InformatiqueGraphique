@@ -22,12 +22,14 @@ class Object
         std::size_t getIndexCount() const;
         glm::vec3 get_center();
 
-        void calculate_final();
+        void set_center(glm::vec3 new_center);
+        void compute_final();
 
         void save_final_data();
 
-        void change_texture(GLuint new_texture);
         GLuint get_texture();
+
+        void set_texture(GLuint texture);
 
         unsigned int VAO, VBO, EBO;
         std::vector<glm::vec3> points;

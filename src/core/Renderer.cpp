@@ -7,7 +7,9 @@ Renderer::Renderer(){
 }
 
 
-void Renderer::draw(const Object& object){
-    object.bind();
-    glDrawElements(GL_TRIANGLES, object.getIndexCount(), GL_UNSIGNED_INT, 0);
+void Renderer::draw(const std::vector<std::unique_ptr<Object>>& objects){
+    for (auto& object : objects){
+        object->bind();
+        glDrawElements(GL_TRIANGLES, object->getIndexCount(), GL_UNSIGNED_INT, 0);
+    }
 }

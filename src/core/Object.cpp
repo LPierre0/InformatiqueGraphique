@@ -23,7 +23,7 @@ Object::~Object() {
 
 
 
-void Object::calculate_final(){
+void Object::compute_final(){
     for (int i = 0; i < points.size(); i++){
         glm::vec3 point = points[i];
         glm::vec3 normal = normals[i];
@@ -84,11 +84,17 @@ void Object::update(){
 
 }
 
-
+void Object::set_texture(GLuint texture){
+    this->texture = texture;
+}
 
 void Object::bind() const{
-    glBindTexture(GL_TEXTURE_2D, texture);
+    //glBindTexture(GL_TEXTURE_2D, texture);
     glBindVertexArray(VAO);
+}
+
+void Object::set_center(glm::vec3 new_center){
+    this->center = new_center;
 }
 
 

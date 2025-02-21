@@ -9,16 +9,16 @@ Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, float width, fl
         this->height = height;
         this->depth = depth;
 
-        this->calculate_points();
-        this->calculate_normals();
-        this->calculate_texture_coordinates();
-        this->calculate_final();
+        this->compute_points();
+        this->compute_normals();
+        this->compute_texture_coordinates();
+        this->compute_final();
         this->update();
 }
 
 
 
-void Parallelepiped::calculate_points(){
+void Parallelepiped::compute_points(){
     // Définition des 8 sommets de base
     glm::vec3 p1 = center + glm::vec3(-width / 2, -height / 2, -depth / 2);
     glm::vec3 p2 = center + glm::vec3(width / 2, -height / 2, -depth / 2);
@@ -75,7 +75,7 @@ void Parallelepiped::calculate_points(){
 
 
 
-void Parallelepiped::calculate_normals(){
+void Parallelepiped::compute_normals(){
     int nb_points = indices.size();
 
     std::vector<float> nb_norm(nb_points, 0.0f);
@@ -106,7 +106,7 @@ void Parallelepiped::calculate_normals(){
 }
 
 
-void Parallelepiped::calculate_texture_coordinates(){
+void Parallelepiped::compute_texture_coordinates(){
 
     // Face Avant
     texCoords.push_back({1.0f * width, 1.0f * height});

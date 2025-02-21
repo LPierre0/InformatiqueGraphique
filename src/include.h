@@ -20,7 +20,7 @@
 #include <stb_image.h>
 #include <iostream>
 #include <filesystem>
-#include "utils.h"
+#include "utils/utils.h"
 
 
 #endif

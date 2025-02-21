@@ -3,9 +3,10 @@
 
 unsigned int TextureManager::load_texture(std::string texture_path){
     if (textures.find(texture_path) == textures.end()){
-        unsigned int texture;
+        GLuint texture;
         glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
+        std::cout << "LOADING TEXTURE" << std::endl;
         // définit les options de la texture actuellement liée
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -14,6 +15,8 @@ unsigned int TextureManager::load_texture(std::string texture_path){
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         // charge et génère la texture
         int width_text, height_text, nrChannels;
+        std::cout << "GET PATH" << std::endl;
+
         std::string path = get_texture_path(texture_path);
         std::cout << path << std::endl;
         const char *cpath = path.c_str();
