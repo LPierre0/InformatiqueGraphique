@@ -41,7 +41,6 @@ unsigned int TextureManager::load_texture(std::string texture_path){
 }
 
 
-
 size_t TextureManager::get_size(){
     return textures.size();
 }

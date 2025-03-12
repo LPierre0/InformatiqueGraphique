@@ -35,6 +35,7 @@ class Object
         std::vector<glm::vec3> points;
         std::vector<glm::vec3> normals;
         std::vector<glm::vec2> texCoords;
+        
         std::vector<int> indices;
 
         std::vector<float> final;

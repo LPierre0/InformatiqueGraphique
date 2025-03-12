@@ -29,7 +29,6 @@ void Object::compute_final(){
         glm::vec3 normal = normals[i];
         glm::vec2 texCoord = texCoords[i];
 
-
         final.push_back(point[0]);
         final.push_back(point[1]);
         final.push_back(point[2]);
@@ -40,6 +39,8 @@ void Object::compute_final(){
 
         final.push_back(texCoord[0]);
         final.push_back(texCoord[1]);
+
+
     }
 }
 

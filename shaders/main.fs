@@ -42,7 +42,7 @@ void main()
     bias = clamp(bias, 0.0, 0.01);
 
     shadowCoord.z -= bias; // Pour éviter l'auto-occultation
-    float depth = texture(depthMap, shadowCoord.xy).r;
+    float depth = texture(depthMap, shadowCoord.xy).z;
     if (shadowCoord.z > depth)
         visibility = 0.5; // Objet dans l'ombre
         

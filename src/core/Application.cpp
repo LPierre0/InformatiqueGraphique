@@ -3,7 +3,7 @@
 glm::vec3 updateLightPosition(float deltaTime, glm::vec3 lightInitialPos);
 
 Application::Application(int width, int height, const char* title)
-    : camera(glm::vec3(3.0f, 5.0f, -5.0f)), lightInitialPos(-1.0f, 2.0f, -0.5f){
+    : camera(glm::vec3(3.0f, 5.0f, -5.0f)), lightInitialPos(-1.0f, 1.0f, -0.5f){
 
     // Camera direction
 
@@ -177,9 +177,9 @@ void Application::run(){
 
     std::vector<std::unique_ptr<Object>> objects;
 
-    objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(0.0f, -1.45f, 0.0f), 20.0f, 0.3f, 20.0f));
-    objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(-1.45f, 0.0f, 0.0f), 0.3f, 3.0f, 1.0f));
-    objects.push_back(std::make_unique<Sphere>(texture_or, glm::vec3(0.0f, 0.0f, 0.0f), 0.3f, 256, 256));
+    objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(0.0f, -1.45f, 0.0f), 5.0f, 0.3f, 5.0f));
+    objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(-1.45f, 0.3f, 0.0f), 0.3f, 0.3f, 0.3f));
+    objects.push_back(std::make_unique<Sphere>(texture_or, glm::vec3(0.0f, 0.0f, 0.0f), 0.3f, 32, 32));
 
 
     
@@ -194,7 +194,24 @@ void Application::run(){
 
 
 
+    glm::mat4 biasMatrix(
+        0.5, 0.0, 0.0, 0.0,
+        0.0, 0.5, 0.0, 0.0,
+        0.0, 0.0, 0.5, 0.0,
+        0.5, 0.5, 0.5, 1.0
+        );
+    glm::mat4 model = glm::mat4(1.0f);
+    float near_plane = 0.0f, far_plane = 5.0f;
+    glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
+    
+    
+    glm::mat4 light_view = glm::lookAt(lightPos, 
+                                    glm::vec3( 0.0f, 0.0f,  0.0f), 
+                                    glm::vec3( 0.0f, 1.0f,  0.0f));  
 
+    
+    glm::mat4 depthMvp = light_projection * light_view * model; 
+    glm::mat4 depthBiaisMvp = biasMatrix * depthMvp;
     
     while (!glfwWindowShouldClose(window)) {        
         float currentFrame = static_cast<float>(glfwGetTime());
@@ -204,24 +221,6 @@ void Application::run(){
         processInput();
         
 
-        glm::mat4 biasMatrix(
-            0.5, 0.0, 0.0, 0.0,
-            0.0, 0.5, 0.0, 0.0,
-            0.0, 0.0, 0.5, 0.0,
-            0.5, 0.5, 0.5, 1.0
-            );
-        glm::mat4 model = glm::mat4(1.0f);
-        float near_plane = 1.0f, far_plane = 7.5f;
-        glm::mat4 light_projection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
-        
-        
-        glm::mat4 light_view = glm::lookAt(lightPos, 
-                                        glm::vec3( 0.0f, 0.0f,  0.0f), 
-                                        glm::vec3( 0.0f, 1.0f,  0.0f));  
-    
-        
-        glm::mat4 depthMvp = light_projection * light_view * model; 
-        glm::mat4 depthBiaisMvp = biasMatrix * depthMvp;
         glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
         glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
         glClear(GL_DEPTH_BUFFER_BIT);
@@ -259,7 +258,9 @@ void Application::run(){
         main_shader.setMat4("depthBiasMvp", depthBiaisMvp);
         main_shader.setVec3("camera_pos", camera.Position);
         main_shader.setVec3("objectColor", glm::vec3(1.0f, 1.0f, 1.0f));
-        glActiveTexture(GL_TEXTURE1); // Utilisation de l'unité 1
+        glActiveTexture(GL_TEXTURE1); 
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glBindTexture(GL_TEXTURE_2D, depthMap);
         main_shader.setInt("depthMap", 1);
 
