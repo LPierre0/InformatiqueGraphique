@@ -11,9 +11,9 @@ class Parallelepiped : public Object
         Parallelepiped(GLuint texture, glm::vec3 center, float width, float height, float depth);
 
 
-        void compute_points();
+        void compute_points() override;
 
-        void compute_normals();
+        void compute_normals() override;
 
         void compute_texture_coordinates();
 

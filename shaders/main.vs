@@ -21,16 +21,12 @@ uniform vec3 camera_pos;
 
 void main()
 {
-    // Position du point de vue de la lumiere
+    FragPos = vec3(model * vec4(aPos, 1.0));
+    
+    Normal = normalize(mat3(transpose(inverse(model))) * aNormal);
 
-    gl_Position = depthMvp * vec4(aPos, 1);
+    TexCoord = aTexCoord;
 
-    ShadowCoord = depthBiasMvp * vec4(aPos, 1);
-
-    FragPos = vec3(model * vec4(aPos, 1.0)); // Calcul de la position dans l'espace monde
-
-    Normal = aNormal;  
-    TexCoord = aTexCoord;  // Passer les coordonnées de texture
-
-    gl_Position = projection * view * vec4(FragPos, 1.0); // Transformation du vertex
+    gl_Position = projection * view * vec4(FragPos, 1.0);
+    ShadowCoord = depthBiasMvp * vec4(aPos, 1.0);
 }

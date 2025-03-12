@@ -19,7 +19,7 @@ Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, float width, fl
 
 
 void Parallelepiped::compute_points(){
-    // Définition des 8 sommets de base
+    this->points.clear();
     glm::vec3 p1 = center + glm::vec3(-width / 2, -height / 2, -depth / 2);
     glm::vec3 p2 = center + glm::vec3(width / 2, -height / 2, -depth / 2);
     glm::vec3 p3 = center + glm::vec3(width / 2, height / 2, -depth / 2);
@@ -30,52 +30,30 @@ void Parallelepiped::compute_points(){
     glm::vec3 p8 = center + glm::vec3(-width / 2, height / 2, depth / 2);
 
 
-    points.push_back(p1); 
-    points.push_back(p2); 
-    points.push_back(p3); 
-    points.push_back(p4); 
+    points = {
+        p1, p2, p3, p4,  // Face avant
+        p6, p5, p8, p7,  // Face arrière
+        p1, p2, p6, p5,  // Face inférieure
+        p4, p3, p7, p8,  // Face supérieure
+        p5, p1, p4, p8,  // Face gauche
+        p2, p6, p7, p3   // Face droite
+    };
 
-    points.push_back(p6); 
-    points.push_back(p5); 
-    points.push_back(p8); 
-    points.push_back(p7); 
-
-    points.push_back(p5); 
-    points.push_back(p6); 
-    points.push_back(p2); 
-    points.push_back(p1); 
-
-    points.push_back(p4); 
-    points.push_back(p3); 
-    points.push_back(p7); 
-    points.push_back(p8); 
-
-    points.push_back(p5); 
-    points.push_back(p1); 
-    points.push_back(p4); 
-    points.push_back(p8); 
-
-    points.push_back(p2); 
-    points.push_back(p6); 
-    points.push_back(p7); 
-    points.push_back(p3); 
-
-   
-
-    // Indices pour former les triangles
+    // Indices pour former les triangles (chaque face est indépendante)
     indices = {
-        0, 1, 2, 0, 2, 3,   // Face avant
-        4, 5, 6, 4, 6, 7, // Face arrière
+        1, 0, 2, 2, 0, 3,    // Face avant
+        5, 4, 6, 6, 4, 7,    // Face arrière
         8, 9, 10, 8, 10, 11, // Face inférieure
-        12, 13, 14, 12, 14, 15, // Face supérieure
-        16, 17, 18, 16, 18, 19, // Face gauche
-        20, 21, 22, 20, 22, 23  // Face droite
+        13, 12, 14, 14, 12, 15, // Face supérieure
+        17, 16, 18, 18, 16, 19, // Face gauche
+        21, 20, 22, 22, 20, 23  // Face droite
     };
 }
 
 
 
 void Parallelepiped::compute_normals(){
+    this->normals.clear();
     int nb_points = indices.size();
 
     std::vector<float> nb_norm(nb_points, 0.0f);
@@ -107,6 +85,7 @@ void Parallelepiped::compute_normals(){
 
 
 void Parallelepiped::compute_texture_coordinates(){
+    this->texCoords.clear();
 
     // Face Avant
     texCoords.push_back({1.0f * width, 1.0f * height});

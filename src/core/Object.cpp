@@ -23,7 +23,15 @@ Object::~Object() {
 
 
 
+void Object::self_print(){
+    for (auto& p : points){
+        std::cout << "Point : " << "x : " << p.x << "y : " << p.y << "z : " << p.z << std::endl;
+    }
+}
+
+
 void Object::compute_final(){
+    this->final.clear();
     for (int i = 0; i < points.size(); i++){
         glm::vec3 point = points[i];
         glm::vec3 normal = normals[i];
@@ -65,6 +73,9 @@ void Object::save_final_data() {
 }
 
 void Object::update(){
+    this->compute_points();
+    this->compute_normals();
+    this->compute_final();
     
     glBindTexture(GL_TEXTURE_2D, texture);
     glBindVertexArray(VAO);
@@ -83,6 +94,36 @@ void Object::update(){
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
+
+    // for (size_t i = 0; i < final.size() / 8; i++) {
+    //     glm::vec3 vertexPos(final[8 * i], final[8 * i + 1], final[8 * i + 2]); // Position du sommet
+    //     glm::vec3 normal(final[8 * i + 3], final[8 * i + 4], final[8 * i + 5]); // Normale
+
+    //     // Créer une ligne qui part du sommet et va dans la direction de la normale
+    //     normals_lines.push_back(vertexPos.x);
+    //     normals_lines.push_back(vertexPos.y);
+    //     normals_lines.push_back(vertexPos.z);
+
+    //     normals_lines.push_back(vertexPos.x + normal.x * 0.2f); // 0.2f = taille de la normale
+    //     normals_lines.push_back(vertexPos.y + normal.y * 0.2f);
+    //     normals_lines.push_back(vertexPos.z + normal.z * 0.2f);
+    // }
+
+
+    // glGenBuffers(1, &normalsVBO);
+    // glGenVertexArrays(1, &normalsVAO);
+    // glBindVertexArray(normalsVAO);
+    // glBindBuffer(GL_ARRAY_BUFFER, normalsVBO);
+    // glBufferData(GL_ARRAY_BUFFER, normals_lines.size() * sizeof(GLfloat), normals_lines.data(), GL_STATIC_DRAW);
+
+    // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
+    // glEnableVertexAttribArray(0);
+
+
+
+    // // Nettoyage
+    // glBindVertexArray(0);
+
 }
 
 void Object::set_texture(GLuint texture){
@@ -96,6 +137,7 @@ void Object::bind() const{
 
 void Object::set_center(glm::vec3 new_center){
     this->center = new_center;
+    this->update();
 }
 
 

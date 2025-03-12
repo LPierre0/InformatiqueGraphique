@@ -4,7 +4,7 @@
 
 
 int main(){
-    Application app(1024, 1024, "prout");
+    Application app(1600, 1200, "SHADOW MAPPING");
 
 
     app.run();

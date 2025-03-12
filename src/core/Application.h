@@ -9,6 +9,12 @@
 #include "../manager/TextureManager.h"
 #include "../objects/Quad.h"
 
+#include "backends/imgui_impl_opengl3.h"
+#include "backends/imgui_impl_glfw.h"
+#include "imgui/imgui.h"
+
+#include "menu.h"
+
 
 class Application {
 private:

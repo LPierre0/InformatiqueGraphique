@@ -24,7 +24,14 @@ class Object
 
         void set_center(glm::vec3 new_center);
         void compute_final();
+        virtual void compute_points(){
+                return;
+        }
+        virtual void compute_normals(){
+                return;
+        }
 
+        void self_print();
         void save_final_data();
 
         GLuint get_texture();
@@ -35,6 +42,9 @@ class Object
         std::vector<glm::vec3> points;
         std::vector<glm::vec3> normals;
         std::vector<glm::vec2> texCoords;
+        GLuint normalsVBO, normalsVAO;
+
+        std::vector<GLfloat> normals_lines;
         
         std::vector<int> indices;
 

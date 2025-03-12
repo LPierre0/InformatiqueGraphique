@@ -1,9 +1,8 @@
 #include "Application.h"
 
-glm::vec3 updateLightPosition(float deltaTime, glm::vec3 lightInitialPos);
 
 Application::Application(int width, int height, const char* title)
-    : camera(glm::vec3(3.0f, 5.0f, -5.0f)), lightInitialPos(-1.0f, 1.0f, -0.5f){
+    : camera(glm::vec3(3.0f, 5.0f, -5.0f)), lightInitialPos(1.0f, 1.0f, 0.0f){
 
     // Camera direction
 
@@ -43,6 +42,7 @@ Application::Application(int width, int height, const char* title)
 
     glfwMakeContextCurrent(window);
 
+
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cerr << "Erreur lors du chargement de GLAD" << std::endl;
         exit(EXIT_FAILURE);
@@ -62,6 +62,7 @@ Application::Application(int width, int height, const char* title)
 
 
     glEnable(GL_DEPTH_TEST); // Active le test de profondeur
+
 }
 
 
@@ -132,6 +133,7 @@ void Application::scroll_callback(GLFWwindow* window, double xoffset, double yof
 
 void Application::run(){
 
+    Menu menu = Menu(this->window);
 
     std::cout << "Launching application\n" << std::endl;
 
@@ -148,14 +150,14 @@ void Application::run(){
         return;
     }
     
-    std::vector<std::unique_ptr<Object>> light_cubes;
-    light_cubes.push_back(std::make_unique<Parallelepiped>(GL_NONE, lightInitialPos, 0.3f, 0.3f, 0.3f));
-
+    
     unsigned int depthMapFBO;
     glGenFramebuffers(1, &depthMapFBO);  
-
+    std::vector<std::unique_ptr<Object>> light_cubes;
+    light_cubes.push_back(std::make_unique<Parallelepiped>(GL_NONE, lightInitialPos, 0.3f, 0.3f, 0.3f));
+    
     const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
-
+    
     unsigned int depthMap;
     glGenTextures(1, &depthMap);
     glBindTexture(GL_TEXTURE_2D, depthMap);
@@ -165,62 +167,63 @@ void Application::run(){
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);  
-
-
+    
+    
     glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
     glDrawBuffer(GL_NONE);
     glReadBuffer(GL_NONE);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
     
-
+    
+    
     std::vector<std::unique_ptr<Object>> objects;
-
-    objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(0.0f, -1.45f, 0.0f), 5.0f, 0.3f, 5.0f));
+    
+    objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(0.0f, -1.45f, 0.0f), 10.0f, 0.3f, 10.0f));
     objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(-1.45f, 0.3f, 0.0f), 0.3f, 0.3f, 0.3f));
     objects.push_back(std::make_unique<Sphere>(texture_or, glm::vec3(0.0f, 0.0f, 0.0f), 0.3f, 32, 32));
-
-
+    
+    
     
     Renderer rend;
     
     Shader main_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/main.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/main.fs");
-
+    
     Shader depth_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/test_depth.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/test_depth.fs");
-        
+    
     Shader ligth_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/light.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/light.fs");
     Quad my_quad(depthMap, main_shader);
-
-
-
+    
+    
+    
     glm::mat4 biasMatrix(
         0.5, 0.0, 0.0, 0.0,
         0.0, 0.5, 0.0, 0.0,
         0.0, 0.0, 0.5, 0.0,
         0.5, 0.5, 0.5, 1.0
-        );
-    glm::mat4 model = glm::mat4(1.0f);
-    float near_plane = 0.0f, far_plane = 5.0f;
-    glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
+    );
     
-    
-    glm::mat4 light_view = glm::lookAt(lightPos, 
-                                    glm::vec3( 0.0f, 0.0f,  0.0f), 
-                                    glm::vec3( 0.0f, 1.0f,  0.0f));  
-
-    
-    glm::mat4 depthMvp = light_projection * light_view * model; 
-    glm::mat4 depthBiaisMvp = biasMatrix * depthMvp;
-    
-    while (!glfwWindowShouldClose(window)) {        
+    while (!glfwWindowShouldClose(window)) {      
+        
         float currentFrame = static_cast<float>(glfwGetTime());
         
         this->deltaTime = currentFrame - this->lastFrame;
         this->lastFrame = currentFrame;
         processInput();
         
-
+        
+        glm::mat4 model = glm::mat4(1.0f);
+        float near_plane = 0.0f, far_plane = 5.0f;
+        glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
+        
+        
+        glm::mat4 light_view = glm::lookAt(this->lightPos, 
+                                        glm::vec3( 0.0f, 0.0f,  0.0f), 
+                                        glm::vec3( 0.0f, 1.0f,  0.0f));  
+    
+        
+        glm::mat4 depthMvp = light_projection * light_view * model; 
+        glm::mat4 depthBiaisMvp = biasMatrix * depthMvp;
         glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
         glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
         glClear(GL_DEPTH_BUFFER_BIT);
@@ -239,7 +242,7 @@ void Application::run(){
         ligth_shader.setMat4("projection", projection);
         ligth_shader.setMat4("view", view);
         model = glm::mat4(1.0f);
-        model = glm::translate(model, lightPos);
+        model = glm::translate(model, this->lightPos);
         
         ligth_shader.setMat4("model", model);
         rend.draw(light_cubes);
@@ -248,8 +251,8 @@ void Application::run(){
 
         main_shader.use();
         main_shader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-        main_shader.setVec3("lightPos", lightPos);
-        main_shader.setFloat("ambientStrength", 1.0f);
+        main_shader.setVec3("lightPos", this->lightPos);
+        main_shader.setFloat("ambientStrength", 0.1f);
         model = glm::mat4(1.0f);
         main_shader.setMat4("model", model);
         main_shader.setMat4("projection", projection);
@@ -264,10 +267,18 @@ void Application::run(){
         glBindTexture(GL_TEXTURE_2D, depthMap);
         main_shader.setInt("depthMap", 1);
 
+
+        menu.render();
         for (auto& object : objects){
             object->set_texture(texture_brick);
         }
         rend.draw(objects);
+
+        if (this->lightPos != menu.light_pos){
+            this->lightPos = menu.light_pos;
+            light_cubes[0]->set_center(this->lightPos);
+
+        }
 
 
 
@@ -275,30 +286,4 @@ void Application::run(){
         glfwPollEvents();
     }
     
-}
-
-
-
-
-glm::vec3 updateLightPosition(float deltaTime, glm::vec3 lightInitialPos) {
-    // Rayon du cercle dans le plan XY
-    float radiusXY = 4.0f;
-
-    // Rayon du cercle dans le plan XZ
-    float radiusXZ = 4.0f;
-
-    // Vitesse de rotation
-    float angularSpeed = 0.5f;
-
-    // Temps écoulé
-    float time = glfwGetTime();
-
-    // Calcul des nouvelles positions en fonction du temps
-    float newX = lightInitialPos.x + radiusXY * cos(angularSpeed * time);
-    float newY = lightInitialPos.y + radiusXY * sin(angularSpeed * time);
-    float newZ = lightInitialPos.z + radiusXZ * cos(angularSpeed * time);
-
-    // Mise à jour de la position de la lumière
-    glm::vec3 lightPos = glm::vec3(newX, newY, newZ);
-    return lightPos;
 }

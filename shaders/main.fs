@@ -14,7 +14,6 @@ uniform float ambientStrength;
 
 uniform sampler2D ourTexture; // Texture à appliquer
 uniform sampler2D depthMap; // Shadow map
-
 void main()
 {
     // Calcul de l'éclairage ambiant
@@ -34,26 +33,33 @@ void main()
     
     vec3 diffuse = diff * lightColor;
 
-    // Calcul de la visibilité
+    // Calcul de la visibilité pour l'ombrage
     float visibility = 1.0;
     vec4 shadowCoord = ShadowCoord;
+
+    // Ajuste le bias en fonction de l'angle entre la normale et la direction de la lumière
     float cosTheta = clamp(dot(norm, lightDir), 0.0, 1.0);
-    float bias = 0.005 * tan(acos(cosTheta));
+    float bias = 0.005 * tan(acos(cosTheta)); 
     bias = clamp(bias, 0.0, 0.01);
 
     shadowCoord.z -= bias; // Pour éviter l'auto-occultation
-    float depth = texture(depthMap, shadowCoord.xy).z;
+
+    // Récupérer la profondeur à partir de la shadow map
+    float depth = texture(depthMap, shadowCoord.xy).r;
+
+    // Comparaison avec la profondeur de la shadow map
     if (shadowCoord.z > depth)
         visibility = 0.5; // Objet dans l'ombre
         
-    
     // Récupère la couleur de la texture
     vec4 textureColor = texture(ourTexture, TexCoord);
     
-    // Mélange l'éclairage avec la couleur de la texture
-    vec3 result = (ambient + diffuse) * objectColor * textureColor.rgb;
+    // Applique l'éclairage avant d'ajouter la texture
+    vec3 result = (ambient + diffuse) * objectColor;
 
+    // Mélange avec la couleur de la texture
+    result *= textureColor.rgb;
 
-
-    FragColor = vec4(result, 1.0) * visibility;  // Applique la couleur finale
+    // Applique la visibilité des ombres
+    FragColor = vec4(result, 1.0) * visibility;
 }
