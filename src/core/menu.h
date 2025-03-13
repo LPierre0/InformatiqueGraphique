@@ -16,6 +16,7 @@ class Menu
         glm::vec3 light_look_at;
         glm::vec3 light_up;
         float cutoff;
+        bool camera_on_light;
 
         void render();
         

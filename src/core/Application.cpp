@@ -204,7 +204,7 @@ void Application::run(){
 
     glEnable(GL_CULL_FACE);
 
-    menu.light_pos = glm::vec3(0.0f, 1.0f, 0.0f);
+    menu.light_pos = glm::vec3(0.5f, 1.0f, 0.0f);
     menu.light_look_at = glm::vec3(0.0f, -1.0f, 0.0f);
     while (!glfwWindowShouldClose(window)) {      
         
@@ -218,12 +218,12 @@ void Application::run(){
         glm::mat4 model = glm::mat4(1.0f);
         float near_plane = 0.1f, far_plane = 5.0f;
         
-        // glm::mat4 light_projection = glm::perspective(glm::radians(menu.cutoff), 
-        //                                       (float)SHADOW_WIDTH / (float)SHADOW_HEIGHT, 
-        //                                       0.1f, 50.0f);
+        glm::mat4 light_projection = glm::perspective(glm::radians(menu.cutoff * 2.0f), 
+                                              (float)SHADOW_WIDTH / (float)SHADOW_HEIGHT, 
+                                              0.1f, 50.0f);
 
-        glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
-        
+        // glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
+
         glm::mat4 light_view = glm::lookAt(menu.light_pos, 
                                         menu.light_look_at, 
                                         glm::vec3( 0.0f, 1.0f,  0.0f));  
@@ -276,6 +276,11 @@ void Application::run(){
         }
         rend.draw(objects);
         menu.render();
+
+        if (menu.camera_on_light){
+            camera.Position = menu.light_pos;
+            camera.Front = menu.light_look_at;
+        }
 
 
 

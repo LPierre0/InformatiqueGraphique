@@ -41,10 +41,12 @@ void main()
     // Calcul de la visibilité pour l'ombrage
     float visibility = 1.0;
     vec4 shadowCoord = ShadowCoord;
+    shadowCoord /= shadowCoord.w; // Correction de la perspective
+
 
     // Ajuste le bias en fonction de l'angle entre la normale et la direction de la lumière
     float cosTheta = clamp(dot(norm, lightDir), 0.0, 1.0);
-    float bias = 0.005 * tan(acos(cosTheta)); 
+    float bias = max(0.005 * (1.0 - cosTheta), 0.001);
     bias = clamp(bias, 0.0, 0.01);
 
     shadowCoord.z -= bias; // Pour éviter l'auto-occultation

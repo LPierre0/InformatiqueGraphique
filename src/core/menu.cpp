@@ -14,8 +14,9 @@ Menu::Menu(GLFWwindow * window){
 
     this->light_pos = glm::vec3(1.0f, 1.0f, 0.0f);
     this->light_up = glm::vec3(0.0f, 1.0f, 0.0f);
-    this->light_look_at = glm::vec3(0.0f, 0.0f, 0.0f);
+    this->light_look_at = glm::vec3(0.0f, -1.0f, 0.0f);
     this->cutoff = 45.0f;
+    this->camera_on_light = false;
 }
 
 
@@ -40,6 +41,8 @@ void Menu::render(){
 
     ImGui::SliderFloat("CUTOFF", &this->cutoff, 0.0f, 90.0f);
 
+
+    this->camera_on_light = ImGui::Button("Put camera on light", {100, 100});
 
     ImGui::End();
     ImGui::Render();
