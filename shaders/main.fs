@@ -45,7 +45,7 @@ void main()
     shadowCoord.z -= bias; // Pour éviter l'auto-occultation
 
     // Récupérer la profondeur à partir de la shadow map
-    float depth = texture(depthMap, shadowCoord.xy).r;
+    float depth = texture(depthMap, shadowCoord.xy).z;
 
     // Comparaison avec la profondeur de la shadow map
     if (shadowCoord.z > depth)

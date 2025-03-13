@@ -203,6 +203,7 @@ void Application::run(){
         0.5, 0.5, 0.5, 1.0
     );
     
+    glEnable(GL_CULL_FACE);
     while (!glfwWindowShouldClose(window)) {      
         
         float currentFrame = static_cast<float>(glfwGetTime());
@@ -211,7 +212,7 @@ void Application::run(){
         this->lastFrame = currentFrame;
         processInput();
         
-        
+        glCullFace(GL_FRONT);
         glm::mat4 model = glm::mat4(1.0f);
         float near_plane = 0.0f, far_plane = 5.0f;
         glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
@@ -234,10 +235,11 @@ void Application::run(){
         // 2. then render scene as normal with shadow mapping (using depth map)
         glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+        
+        
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)width / (float)height, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
-
+        
         ligth_shader.use();
         ligth_shader.setMat4("projection", projection);
         ligth_shader.setMat4("view", view);
@@ -246,13 +248,14 @@ void Application::run(){
         
         ligth_shader.setMat4("model", model);
         rend.draw(light_cubes);
-
-
-
+        
+        
+        
         main_shader.use();
+        glCullFace(GL_BACK); 
         main_shader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
         main_shader.setVec3("lightPos", this->lightPos);
-        main_shader.setFloat("ambientStrength", 0.1f);
+        main_shader.setFloat("ambientStrength", 0.0f);
         model = glm::mat4(1.0f);
         main_shader.setMat4("model", model);
         main_shader.setMat4("projection", projection);
@@ -268,11 +271,11 @@ void Application::run(){
         main_shader.setInt("depthMap", 1);
 
 
-        menu.render();
         for (auto& object : objects){
             object->set_texture(texture_brick);
         }
         rend.draw(objects);
+        menu.render();
 
         if (this->lightPos != menu.light_pos){
             this->lightPos = menu.light_pos;
