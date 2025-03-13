@@ -153,8 +153,6 @@ void Application::run(){
     
     unsigned int depthMapFBO;
     glGenFramebuffers(1, &depthMapFBO);  
-    std::vector<std::unique_ptr<Object>> light_cubes;
-    light_cubes.push_back(std::make_unique<Parallelepiped>(GL_NONE, lightInitialPos, 0.3f, 0.3f, 0.3f));
     
     const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
     
@@ -182,6 +180,7 @@ void Application::run(){
     objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(0.0f, -1.45f, 0.0f), 10.0f, 0.3f, 10.0f));
     objects.push_back(std::make_unique<Parallelepiped>(texture_or, glm::vec3(-1.45f, 0.3f, 0.0f), 0.3f, 0.3f, 0.3f));
     objects.push_back(std::make_unique<Sphere>(texture_or, glm::vec3(0.0f, 0.0f, 0.0f), 0.3f, 32, 32));
+
     
     
     
@@ -191,8 +190,6 @@ void Application::run(){
     
     Shader depth_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/test_depth.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/test_depth.fs");
     
-    Shader ligth_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/light.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/light.fs");
-    Quad my_quad(depthMap, main_shader);
     
     
     
@@ -203,7 +200,12 @@ void Application::run(){
         0.5, 0.5, 0.5, 1.0
     );
     
+    printMatrix(biasMatrix);
+
     glEnable(GL_CULL_FACE);
+
+    menu.light_pos = glm::vec3(0.0f, 1.0f, 0.0f);
+    menu.light_look_at = glm::vec3(0.0f, -1.0f, 0.0f);
     while (!glfwWindowShouldClose(window)) {      
         
         float currentFrame = static_cast<float>(glfwGetTime());
@@ -214,12 +216,16 @@ void Application::run(){
         
         glCullFace(GL_FRONT);
         glm::mat4 model = glm::mat4(1.0f);
-        float near_plane = 0.0f, far_plane = 5.0f;
+        float near_plane = 0.1f, far_plane = 5.0f;
+        
+        // glm::mat4 light_projection = glm::perspective(glm::radians(menu.cutoff), 
+        //                                       (float)SHADOW_WIDTH / (float)SHADOW_HEIGHT, 
+        //                                       0.1f, 50.0f);
+
         glm::mat4 light_projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, near_plane, far_plane);
         
-        
-        glm::mat4 light_view = glm::lookAt(this->lightPos, 
-                                        glm::vec3( 0.0f, 0.0f,  0.0f), 
+        glm::mat4 light_view = glm::lookAt(menu.light_pos, 
+                                        menu.light_look_at, 
                                         glm::vec3( 0.0f, 1.0f,  0.0f));  
     
         
@@ -240,21 +246,15 @@ void Application::run(){
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)width / (float)height, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
         
-        ligth_shader.use();
-        ligth_shader.setMat4("projection", projection);
-        ligth_shader.setMat4("view", view);
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, this->lightPos);
-        
-        ligth_shader.setMat4("model", model);
-        rend.draw(light_cubes);
-        
+
         
         
         main_shader.use();
         glCullFace(GL_BACK); 
         main_shader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-        main_shader.setVec3("lightPos", this->lightPos);
+        main_shader.setVec3("lightPos", menu.light_pos);
+        main_shader.setVec3("spot_direction", menu.light_look_at);
+        main_shader.setFloat("cutoff",  glm::cos(glm::radians(menu.cutoff)));
         main_shader.setFloat("ambientStrength", 0.0f);
         model = glm::mat4(1.0f);
         main_shader.setMat4("model", model);
@@ -276,12 +276,6 @@ void Application::run(){
         }
         rend.draw(objects);
         menu.render();
-
-        if (this->lightPos != menu.light_pos){
-            this->lightPos = menu.light_pos;
-            light_cubes[0]->set_center(this->lightPos);
-
-        }
 
 
 

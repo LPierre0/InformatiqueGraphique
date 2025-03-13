@@ -7,6 +7,10 @@ in vec2 TexCoord;  // Coordonnées de texture reçues du vertex shader
 in vec4 ShadowCoord; // Coordonnées de la shadow map
 
 uniform vec3 lightPos; 
+uniform vec3 spot_direction;
+uniform float cutoff;
+
+
 uniform vec3 lightColor;
 uniform vec3 objectColor;
 uniform float ambientStrength;
@@ -21,7 +25,8 @@ void main()
     
     // Calcul de l'éclairage diffus
     vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(lightPos - FragPos);
+    vec3 lightDir = normalize(lightPos - FragPos);  
+
 
     // Utilisation de la normale correcte en fonction de gl_FrontFacing
     float diff;
@@ -51,15 +56,26 @@ void main()
     if (shadowCoord.z > depth)
         visibility = 0.5; // Objet dans l'ombre
         
+
+
     // Récupère la couleur de la texture
     vec4 textureColor = texture(ourTexture, TexCoord);
     
     // Applique l'éclairage avant d'ajouter la texture
+    float theta = dot(lightDir, normalize(-spot_direction));
+
+
+    
     vec3 result = (ambient + diffuse) * objectColor;
+
 
     // Mélange avec la couleur de la texture
     result *= textureColor.rgb;
 
     // Applique la visibilité des ombres
-    FragColor = vec4(result, 1.0) * visibility;
+    if (theta > cutoff){
+        FragColor = vec4(result, 1.0) * visibility;
+    }else{
+        FragColor = vec4(0.0);
+    }
 }

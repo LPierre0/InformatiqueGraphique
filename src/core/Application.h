@@ -4,6 +4,7 @@
 #include "../include.h"
 #include "Object.h"
 #include "Renderer.h"
+#include "../utils/utils.h"
 #include "../objects/Parallelepiped.h"
 #include "../objects/Sphere.h"
 #include "../manager/TextureManager.h"
