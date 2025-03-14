@@ -4,11 +4,13 @@
 #include "../include.h"
 #include "Object.h"
 #include "Renderer.h"
+#include "ShadowMapping.h"
 #include "../utils/utils.h"
 #include "../objects/Parallelepiped.h"
 #include "../objects/Sphere.h"
 #include "../manager/TextureManager.h"
 #include "../objects/Quad.h"
+
 
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"

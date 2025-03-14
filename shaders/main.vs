@@ -13,7 +13,6 @@ out vec4 ShadowCoord;
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
-uniform mat4 depthMvp;
 uniform mat4 depthBiasMvp;
 uniform vec3 camera_pos;
 

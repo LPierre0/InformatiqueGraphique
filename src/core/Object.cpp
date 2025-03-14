@@ -131,7 +131,6 @@ void Object::set_texture(GLuint texture){
 }
 
 void Object::bind() const{
-    //glBindTexture(GL_TEXTURE_2D, texture);
     glBindVertexArray(VAO);
 }
 

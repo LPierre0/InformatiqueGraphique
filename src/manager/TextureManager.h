@@ -3,6 +3,7 @@
 
 #include "../include.h"
 #include <map>
+#include <stdexcept>
 
 class TextureManager{
     public:

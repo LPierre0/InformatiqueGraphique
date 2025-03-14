@@ -6,16 +6,12 @@ unsigned int TextureManager::load_texture(std::string texture_path){
         GLuint texture;
         glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
-        std::cout << "LOADING TEXTURE" << std::endl;
-        // définit les options de la texture actuellement liée
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        // set texture filtering parameters
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        // charge et génère la texture
+
         int width_text, height_text, nrChannels;
-        std::cout << "GET PATH" << std::endl;
 
         std::string path = get_texture_path(texture_path);
         std::cout << path << std::endl;
@@ -30,8 +26,7 @@ unsigned int TextureManager::load_texture(std::string texture_path){
         }
         else
         {
-            std::cout << "Failed to load texture" << std::endl;
-            return -1;
+            throw std::invalid_argument("Need a textures knowned the actual path is  : " + path);
         }
         stbi_image_free(data);
         textures[texture_path] = texture;

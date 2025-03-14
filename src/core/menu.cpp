@@ -12,8 +12,7 @@ Menu::Menu(GLFWwindow * window){
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
 
-    this->light_pos = glm::vec3(1.0f, 1.0f, 0.0f);
-    this->light_up = glm::vec3(0.0f, 1.0f, 0.0f);
+    this->light_pos = glm::vec3(0.5f, 1.0f, 0.0f);
     this->light_look_at = glm::vec3(0.0f, -1.0f, 0.0f);
     this->cutoff = 45.0f;
     this->camera_on_light = false;
