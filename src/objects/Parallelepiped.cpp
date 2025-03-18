@@ -3,8 +3,8 @@
 
 
 
-Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, float width, float height, float depth)
-    : Object(texture, center){
+Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, glm::vec3 color, float width, float height, float depth)
+    : Object(texture, center, color){
         this->width = width;
         this->height = height;
         this->depth = depth;

@@ -6,21 +6,30 @@
 
 class Renderer {
 private:
+    Shader &shader;
 
 public:
-    Renderer();
+    Renderer(Shader &existing_shader);
 
     template <typename T>
     void draw(const std::vector<std::unique_ptr<T>>& objects) {
         static_assert(std::is_base_of<Object, T>::value, "T must derive from Object");
 
+
         for (const auto& obj : objects) {
             obj->bind();
+            if (obj->use_texture){
+                glActiveTexture(GL_TEXTURE0);
+                glBindTexture(GL_TEXTURE_2D, obj->texture);
+                shader.setInt("ourTexture", 0);
+            }
+            shader.setVec3("objectColor", obj->color);
+            shader.setBool("useTexture", obj->use_texture);
             glDrawElements(GL_TRIANGLES, obj->getIndexCount(), GL_UNSIGNED_INT, 0);
-            // glBindVertexArray(obj->normalsVAO);
-            // glDrawArrays(GL_LINES, 0, obj->normals_lines.size() / 3);
         }
     }
+
+
 
 };
 

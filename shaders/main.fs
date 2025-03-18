@@ -18,6 +18,7 @@ uniform float ambientStrength;
 
 uniform sampler2D ourTexture; // Texture à appliquer
 uniform sampler2D depthMap; // Shadow map
+uniform bool useTexture;
 void main()
 {
     // Calcul de l'éclairage ambiant
@@ -72,7 +73,7 @@ void main()
 
 
     // Mélange avec la couleur de la texture
-    result *= textureColor.rgb;
+    if (useTexture) result *= textureColor.rgb;
 
     // Applique la visibilité des ombres
     if (theta > cutoff){

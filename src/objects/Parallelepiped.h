@@ -8,7 +8,7 @@
 class Parallelepiped : public Object 
 {
     public:
-        Parallelepiped(GLuint texture, glm::vec3 center, float width, float height, float depth);
+        Parallelepiped(GLuint texture, glm::vec3 center, glm::vec3 color, float width, float height, float depth);
 
 
         void compute_points() override;

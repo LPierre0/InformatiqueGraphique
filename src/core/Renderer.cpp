@@ -2,7 +2,8 @@
 
 
 
-Renderer::Renderer(){
-    glEnable(GL_DEPTH_TEST);
+Renderer::Renderer(Shader &existing_shader)
+    : shader(existing_shader){
+        glEnable(GL_DEPTH_TEST);
 }
 

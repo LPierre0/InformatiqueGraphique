@@ -7,7 +7,7 @@ int main(){
     Application app(1600, 1200, "SHADOW MAPPING");
 
 
-    app.run();
+    app.render_shadow_map();
 
     return 1;
 }

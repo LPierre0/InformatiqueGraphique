@@ -8,6 +8,7 @@
 #include "../utils/utils.h"
 #include "../objects/Parallelepiped.h"
 #include "../objects/Sphere.h"
+#include "../objects/Cylinder.h"
 #include "../manager/TextureManager.h"
 #include "../objects/Quad.h"
 
@@ -51,7 +52,9 @@ private:
 public:
     Application(int width, int height, const char* title);
 
-    void run();
+    void render_shadow_map();
+
+    void render_animation();
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
     

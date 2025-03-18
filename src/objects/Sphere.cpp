@@ -3,8 +3,8 @@
 const float PI = 3.14159265358979323846;
 
 
-Sphere::Sphere(GLuint texture, glm::vec3 center, float radius, int sector_count, int stack_count)
-    : Object(texture, center){
+Sphere::Sphere(GLuint texture, glm::vec3 center, glm::vec3 color, float radius, int sector_count, int stack_count)
+    : Object(texture, center, color){
     
     this->radius = radius;
     this->sector_count = sector_count;
@@ -108,3 +108,24 @@ void Sphere::compute_texture_coordinates(){
 }
 
 
+void Sphere::update(){
+    this->compute_points_and_normals();
+    this->compute_indices();
+    
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, final.size() * sizeof(float), final.data(), GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(int), indices.data(), GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+}

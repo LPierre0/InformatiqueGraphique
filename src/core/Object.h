@@ -7,7 +7,7 @@
 class Object
 {
     public:
-        Object(GLuint texture, glm::vec3 center);
+        Object(GLuint texture, glm::vec3 center, glm::vec3 color);
         ~Object();
 
         void bind() const;
@@ -21,6 +21,7 @@ class Object
         void move_center(glm::vec3 new_center);
         std::size_t getIndexCount() const;
         glm::vec3 get_center();
+        void self_print();
 
         void set_center(glm::vec3 new_center);
         void compute_final();
@@ -30,8 +31,6 @@ class Object
         virtual void compute_normals(){
                 return;
         }
-
-        void self_print();
         void save_final_data();
 
         GLuint get_texture();
@@ -39,6 +38,8 @@ class Object
         void set_texture(GLuint texture);
 
         unsigned int VAO, VBO, EBO;
+        bool use_texture;
+        glm::vec3 color;
         std::vector<glm::vec3> points;
         std::vector<glm::vec3> normals;
         std::vector<glm::vec2> texCoords;
