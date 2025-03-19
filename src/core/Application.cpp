@@ -151,11 +151,21 @@ void Application::render_shadow_map(){
     
     std::vector<std::shared_ptr<Object>> objects;
     
-    objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(-1.45f, 0.3f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 0.3f, 0.3f));
-
-    objects.push_back(std::make_shared<Sphere>(0, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 32, 32));
+    objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(-1.5f, 0.3f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 0.3f, 0.3f));
+    objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(1.5f, 0.3f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.4f, 0.4f, 0.4f));
+    
+    objects.push_back(std::make_shared<Sphere>(0, glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 32, 32));
+    objects.push_back(std::make_shared<Sphere>(0, glm::vec3(1.0f, 0.8f, -1.0f), glm::vec3(0.5f, 0.5f, 0.0f), 0.5f, 32, 32));
+    
     objects.push_back(std::make_shared<Cylinder>(0, glm::vec3(-1.0f, 0.0f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 1.0f, 64, 512));
-
+    objects.push_back(std::make_shared<Cylinder>(0, glm::vec3(0.5f, 0.0f, -0.5f), glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.2f, 0.8f, 64, 512));
+    
+    objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(-2.0f, 0.0f, 1.5f), glm::vec3(1.0f, 0.0f, 0.0f), 0.5f, 0.5f, 0.5f));
+    objects.push_back(std::make_shared<Sphere>(0, glm::vec3(2.0f, 0.3f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 32, 32));
+    
+    objects.push_back(std::make_shared<Cylinder>(0, glm::vec3(-1.5f, 0.5f, -1.5f), glm::vec3(1.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.25f, 1.2f, 64, 512));
+    objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(1.5f, 0.5f, -1.5f), glm::vec3(0.0f, 1.0f, 1.0f), 0.6f, 0.6f, 0.6f));
+    
     std::vector<std::shared_ptr<Object>> scene;
 
     scene.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(0.0f, -1.45f, 0.0f), glm::vec3(0.6f, 0.6f, 0.6f), 10.0f, 0.3f, 10.0f));
