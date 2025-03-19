@@ -71,6 +71,7 @@ void Object::update_mesh(){
     this->compute_points();
     this->compute_normals();
     this->compute_indices();
+    this->compute_final();
 }
 
 void Object::update(){

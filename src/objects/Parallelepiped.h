@@ -15,6 +15,7 @@ class Parallelepiped : public Object
 
         void compute_normals() override;
 
+        void compute_indices() override;
         void compute_texture_coordinates();
 
     private:

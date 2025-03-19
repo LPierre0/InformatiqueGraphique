@@ -152,6 +152,7 @@ void Application::render_shadow_map(){
     std::vector<std::shared_ptr<Object>> objects;
     
     objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(-1.45f, 0.3f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 0.3f, 0.3f));
+
     objects.push_back(std::make_shared<Sphere>(0, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 32, 32));
     objects.push_back(std::make_shared<Cylinder>(0, glm::vec3(-1.0f, 0.0f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 1.0f, 64, 512));
 

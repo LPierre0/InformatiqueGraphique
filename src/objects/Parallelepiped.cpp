@@ -5,11 +5,13 @@
 
 Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, glm::vec3 color, float width, float height, float depth)
     : Object(texture, center, color){
+        printf("Paral created at center : %f, %f, %f", center.x, center.y, center.z);
         this->width = width;
         this->height = height;
         this->depth = depth;
 
         this->compute_points();
+        this->compute_indices();
         this->compute_normals();
         this->compute_texture_coordinates();
         this->compute_final();
@@ -20,6 +22,7 @@ Parallelepiped::Parallelepiped(GLuint texture, glm::vec3 center, glm::vec3 color
 
 void Parallelepiped::compute_points(){
     this->points.clear();
+    printf("Center cube : %f, %f, %f\n", center.x, center.y, center.z);
     glm::vec3 p1 = center + glm::vec3(-width / 2, -height / 2, -depth / 2);
     glm::vec3 p2 = center + glm::vec3(width / 2, -height / 2, -depth / 2);
     glm::vec3 p3 = center + glm::vec3(width / 2, height / 2, -depth / 2);
@@ -38,9 +41,10 @@ void Parallelepiped::compute_points(){
         p5, p1, p4, p8,  // Face gauche
         p2, p6, p7, p3   // Face droite
     };
+}
 
-    // Indices pour former les triangles (chaque face est indépendante)
-    indices = {
+void Parallelepiped::compute_indices(){
+    this->indices = {
         1, 0, 2, 2, 0, 3,    // Face avant
         5, 4, 6, 6, 4, 7,    // Face arrière
         8, 9, 10, 8, 10, 11, // Face inférieure
@@ -49,8 +53,6 @@ void Parallelepiped::compute_points(){
         21, 20, 22, 22, 20, 23  // Face droite
     };
 }
-
-
 
 void Parallelepiped::compute_normals(){
     this->normals.clear();
@@ -125,6 +127,4 @@ void Parallelepiped::compute_texture_coordinates(){
     texCoords.push_back({1.0f * depth, 0.0f * height});
 
 }
-
-
 
