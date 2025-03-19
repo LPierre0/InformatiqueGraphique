@@ -14,8 +14,11 @@ Menu::Menu(GLFWwindow * window){
 
     this->light_pos = glm::vec3(0.5f, 1.0f, 0.0f);
     this->light_look_at = glm::vec3(0.0f, -1.0f, 0.0f);
-    this->cutoff = 45.0f;
+    this->inner_cutoff = 45.0f;
+    this->outer_cutoff = 55.0f;
     this->camera_on_light = false;
+    this->show_bone = false;
+    this->set_initial_pos = true;
 }
 
 
@@ -38,10 +41,30 @@ void Menu::render(){
     light_look_at[2] = v_look_at[2];
 
 
-    ImGui::SliderFloat("CUTOFF", &this->cutoff, 0.0f, 90.0f);
+    ImGui::SliderFloat("inner cutoff", &this->inner_cutoff, 0.0f, 90.0f);
+
+    ImGui::SliderFloat("outer cutoff", &this->outer_cutoff, 0.0f, 90.0f);
+
 
 
     this->camera_on_light = ImGui::Button("Put camera on light", {100, 100});
+
+    ImGui::End();
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+
+void Menu::render_animation(){
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+    ImGui::Begin("Demo window");
+    
+
+    ImGui::Checkbox("Voir les os", &show_bone);
+    ImGui::Checkbox("Pose initiale", &set_initial_pos);
+
 
     ImGui::End();
     ImGui::Render();

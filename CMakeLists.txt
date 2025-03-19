@@ -30,6 +30,9 @@ file(GLOB_RECURSE SOURCE_FILES
     "src/manager/*.cpp"
     "src/utils/*.h"
     "src/utils/*.cpp"
+    "src/animation/*.cpp"
+    "src/animation/*.h"
+
 )
 
 file(GLOB MAIN_FILE "src/main.cpp")

@@ -7,6 +7,7 @@
 #include "ShadowMapping.h"
 #include "../utils/utils.h"
 #include "../objects/Parallelepiped.h"
+#include "../animation/Animation.h"
 #include "../objects/Sphere.h"
 #include "../objects/Cylinder.h"
 #include "../manager/TextureManager.h"

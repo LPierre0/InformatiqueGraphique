@@ -28,6 +28,8 @@ void Sphere::compute_points_and_normals(){
     float sectorStep = 2 * PI / sector_count;
     float stackStep = PI / stack_count;
     float sectorAngle, stackAngle;
+    points.clear();
+    normals.clear();
 
     for(int i = 0; i <= stack_count; ++i)
     {
@@ -60,6 +62,7 @@ void Sphere::compute_points_and_normals(){
 
 
 void Sphere::compute_indices(){
+    indices.clear();
     int k1, k2;
     for(int i = 0; i < stack_count; ++i)
     {
@@ -108,24 +111,8 @@ void Sphere::compute_texture_coordinates(){
 }
 
 
-void Sphere::update(){
+void Sphere::update_mesh(){
     this->compute_points_and_normals();
     this->compute_indices();
-    
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, final.size() * sizeof(float), final.data(), GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(int), indices.data(), GL_STATIC_DRAW);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    glEnableVertexAttribArray(2);
+    this->compute_final();
 }

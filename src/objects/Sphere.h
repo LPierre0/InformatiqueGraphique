@@ -13,7 +13,7 @@ class Sphere : public Object
         void compute_points_and_normals();
         void compute_texture_coordinates();
         void compute_indices();
-        void update();
+        void update_mesh() override;
 
     private:
         float radius;

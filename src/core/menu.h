@@ -15,10 +15,16 @@ class Menu
         glm::vec3 light_pos;
         glm::vec3 light_look_at;
         glm::vec3 light_up;
-        float cutoff;
+
+        float inner_cutoff;
+        float outer_cutoff;
         bool camera_on_light;
 
+        bool show_bone;
+        bool set_initial_pos;
+
         void render();
+        void render_animation();
         
 
     

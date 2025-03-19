@@ -12,7 +12,7 @@ public:
     Renderer(Shader &existing_shader);
 
     template <typename T>
-    void draw(const std::vector<std::unique_ptr<T>>& objects) {
+    void draw(const std::vector<std::shared_ptr<T>>& objects) {
         static_assert(std::is_base_of<Object, T>::value, "T must derive from Object");
 
 

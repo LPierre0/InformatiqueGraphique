@@ -4,6 +4,7 @@ out vec4 FragColor;
 in vec3 Normal;  
 in vec3 FragPos;  
 in vec2 TexCoord;  
+in vec2 weight;
 
 uniform vec3 objectColor;
 
@@ -26,11 +27,13 @@ void main()
     
     vec3 diffuse = diff * lightColor;
     
-    vec3 ambient = 0.3f * lightColor;
+    vec3 ambient = 1.0f * lightColor;
     
     vec4 textureColor = texture(ourTexture, TexCoord);
     
-    vec3 result = (ambient + diffuse) * objectColor;
+    vec3 color = (weight.x == 0.0 && weight.y == 0.0) ? vec3(1.0, 1.0, 1.0) : vec3(weight.x, weight.y, 0.0);
+
+    vec3 result = (ambient + diffuse) * color;
 
 
     if(useTexture){

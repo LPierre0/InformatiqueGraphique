@@ -144,19 +144,20 @@ void Application::render_shadow_map(){
     
     ShadowMap shadow_map = ShadowMap("/home/pierre/Projects/InformatiqueGraphique/shaders/test_depth.vs",
          "/home/pierre/Projects/InformatiqueGraphique/shaders/test_depth.fs", this->width, this->height, 
-         near_plane, far_plane, model, menu.cutoff, menu.light_pos, menu.light_look_at);
+         near_plane, far_plane, model, menu.outer_cutoff, menu.light_pos, menu.light_look_at);
     
     
     
     
-    std::vector<std::unique_ptr<Object>> objects;
+    std::vector<std::shared_ptr<Object>> objects;
     
-    objects.push_back(std::make_unique<Parallelepiped>(0, glm::vec3(0.0f, -1.45f, 0.0f), glm::vec3(1.0f, 1.0f, 1.0f), 10.0f, 0.3f, 10.0f));
-    objects.push_back(std::make_unique<Parallelepiped>(0, glm::vec3(-1.45f, 0.3f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 0.3f, 0.3f));
-    objects.push_back(std::make_unique<Sphere>(0, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 32, 32));
-    objects.push_back(std::make_unique<Cylinder>(0, glm::vec3(-1.0f, 0.0f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 1.0f, 64, 512));
+    objects.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(-1.45f, 0.3f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 0.3f, 0.3f));
+    objects.push_back(std::make_shared<Sphere>(0, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 32, 32));
+    objects.push_back(std::make_shared<Cylinder>(0, glm::vec3(-1.0f, 0.0f, 0.5f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 1.0f, 64, 512));
 
-    
+    std::vector<std::shared_ptr<Object>> scene;
+
+    scene.push_back(std::make_shared<Parallelepiped>(0, glm::vec3(0.0f, -1.45f, 0.0f), glm::vec3(0.6f, 0.6f, 0.6f), 10.0f, 0.3f, 10.0f));
     
     
     Shader main_shader("/home/pierre/Projects/InformatiqueGraphique/shaders/main.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/main.fs");
@@ -169,20 +170,22 @@ void Application::render_shadow_map(){
     
 
     
-    
+    float time = 0;
     
     while (!glfwWindowShouldClose(window)) {      
         
         float currentFrame = static_cast<float>(glfwGetTime());
         
         this->deltaTime = currentFrame - this->lastFrame;
+        time += deltaTime;
         this->lastFrame = currentFrame;
         processInput();
         
         glCullFace(GL_FRONT);
-        shadow_map.update(menu.cutoff, menu.light_pos, menu.light_look_at);
+        shadow_map.update(menu.outer_cutoff, menu.light_pos, menu.light_look_at);
         shadow_map.set_shader();
         rend.draw(objects);
+        rend.draw(scene);
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
         // 2. then render scene as normal with shadow mapping (using depth map)
         glViewport(0, 0, width, height);
@@ -200,7 +203,9 @@ void Application::render_shadow_map(){
         main_shader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
         main_shader.setVec3("lightPos", menu.light_pos);
         main_shader.setVec3("spot_direction", menu.light_look_at);
-        main_shader.setFloat("cutoff",  glm::cos(glm::radians(menu.cutoff)));
+        main_shader.setFloat("inner_cutoff",  glm::cos(glm::radians(menu.inner_cutoff)));
+        main_shader.setFloat("outer_cutoff",  glm::cos(glm::radians(menu.outer_cutoff)));
+
         main_shader.setFloat("ambientStrength", 0.0f);
         main_shader.setMat4("model", model);
         main_shader.setMat4("projection", projection);
@@ -215,13 +220,29 @@ void Application::render_shadow_map(){
         glBindTexture(GL_TEXTURE_2D, shadow_map.depthMap);
         main_shader.setInt("depthMap", 1);
         rend.draw(objects);
+        rend.draw(scene);
         
         menu.render();
         if (menu.camera_on_light){
             camera.Position = menu.light_pos;
             camera.Front = menu.light_look_at;
-            camera.Zoom = menu.cutoff;
+            camera.Zoom = menu.inner_cutoff;
         }
+
+        if ((int)round(time) % 2 == 1){
+            for(auto& obj : objects){
+                obj->set_center(obj->center - glm::vec3(0.0f, 0.1f * deltaTime * 2, 0.0f));
+                obj->update_mesh();
+                obj->update();
+            }
+        }else{
+            for(auto& obj : objects){
+                obj->set_center(obj->center + glm::vec3(0.0f, 0.1f * deltaTime * 2, 0.0f));
+                obj->update_mesh();
+                obj->update();
+            }
+        }
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
@@ -232,16 +253,25 @@ void Application::render_animation(){
     Menu menu(this->window);
 
 
-    std::vector<std::unique_ptr<Object>> objects;
     
-    objects.push_back(std::make_unique<Cylinder>(0, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(1.0f, 0.0f, 0.0f), 0.1f, 1.0f, 64, 512));
-    objects.push_back(std::make_unique<Sphere>(0, glm::vec3(0.5f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), 0.3f, 64, 512));
-    objects.push_back(std::make_unique<Sphere>(0, glm::vec3(-0.5f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f), 0.3f, 64, 512));
-
-
     
+    std::shared_ptr<Cylinder> cylindre = std::make_shared<Cylinder>(
+        0, glm::vec3(-0.5f, 0.0f, 0.0f), glm::vec3(1.0f, 0.0f, 0.0f), 
+        glm::vec3(1.0f, 0.0f, 0.0f), 0.5f, 3.0f, 64, 512
+    );
     Shader shader = Shader("/home/pierre/Projects/InformatiqueGraphique/shaders/animation_shader.vs", "/home/pierre/Projects/InformatiqueGraphique/shaders/animation_shader.fs");
     Renderer rend(shader);
+    Animation anim(cylindre, shader);  // Passer un shared_ptr
+    
+    std::vector<std::shared_ptr<Object>> objects;
+    objects.push_back(cylindre); 
+    
+    
+    float angle_degrees = 90.0f;
+    float angle_radians = glm::radians(angle_degrees);
+    glm::mat4 transform = glm::rotate(glm::mat4(1.0f), angle_radians, glm::vec3(0.0f, 0.0f, 1.0f));  
+    anim.transform_bone(1, transform);
+
 
     glm::mat4 model = glm::mat4(1.0f);
 
@@ -258,7 +288,7 @@ void Application::render_animation(){
 
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)width / (float)height, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
-        drawAxes(shader, view, projection);
+        // drawAxes(shader, view, projection);
 
         shader.use();
         shader.setMat4("model", model);
@@ -267,9 +297,22 @@ void Application::render_animation(){
         shader.setBool("useTexture", false);
         shader.setVec3("lightPos", glm::vec3(1.0f, 1.0f, 0.0f));
 
-        rend.draw(objects);
+        if (menu.show_bone){
+            rend.draw(anim.bones_mesh);
+        }
+        else{
+            rend.draw(objects);
+        }
 
-        menu.render();
+        if (menu.set_initial_pos and not anim.initial){
+            anim.set_initial_pos();
+            anim.initial = true;
+        }else if (not menu.set_initial_pos and anim.initial){
+            anim.transform_bone(1, transform);
+            anim.initial = false;
+        }
+
+        menu.render_animation();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

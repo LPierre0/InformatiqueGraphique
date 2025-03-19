@@ -11,6 +11,7 @@ class Object
         ~Object();
 
         void bind() const;
+        virtual void update_mesh();
         void update();
         
         void bind_vao();
@@ -29,6 +30,10 @@ class Object
                 return;
         }
         virtual void compute_normals(){
+                return;
+        }
+
+        virtual void compute_indices(){
                 return;
         }
         void save_final_data();
@@ -54,9 +59,9 @@ class Object
         FORME DE FINAL : 
 
 
-        points   // normale  // normale inverse  //  coordonnées de texture
+        points   // normale   //  coordonnées de texture
 
-        0.0 0.0 0.0 // 0.0 0.0 0.0 // 0.0 0.0 0.0 // 0.0 0.0
+        0.0 0.0 0.0 // 0.0 0.0 0.0// 0.0 0.0
 
 
 */

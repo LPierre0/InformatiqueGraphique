@@ -13,7 +13,7 @@ class Cylinder : public Object
         void compute_points_and_normals();
         void compute_texture_coordinates();
         void compute_indices();
-        void update();
+        void update_mesh() override;
 
     private:
         float radius;
@@ -21,7 +21,6 @@ class Cylinder : public Object
         int subdiv1;
         int subdiv2;
         glm::vec3 base;
-        glm::vec3 center;
         glm::vec3 axis;
 };
 

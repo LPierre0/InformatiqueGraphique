@@ -67,10 +67,13 @@ void Object::save_final_data() {
     file.close();
 }
 
-void Object::update(){
+void Object::update_mesh(){
     this->compute_points();
     this->compute_normals();
-    this->compute_final();
+    this->compute_indices();
+}
+
+void Object::update(){
     if (use_texture) glBindTexture(GL_TEXTURE_2D, texture);
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -99,7 +102,6 @@ void Object::bind() const{
 
 void Object::set_center(glm::vec3 new_center){
     this->center = new_center;
-    this->update();
 }
 
 void Object::self_print(){
