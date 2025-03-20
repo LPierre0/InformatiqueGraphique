@@ -38,7 +38,7 @@ file(GLOB_RECURSE SOURCE_FILES
 file(GLOB MAIN_FILE "src/main.cpp")
 list(REMOVE_ITEM SOURCE_FILES ${MAIN_FILE})
 
-set(EXECUTABLE_NAME "my-exec")
+set(EXECUTABLE_NAME "my-shadow_map")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES} ${MAIN_FILE})
 
 if(UNIX AND NOT APPLE)
@@ -84,14 +84,15 @@ foreach(DLL ${DLLS})
 endforeach()
 
 
-file(GLOB_RECURSE TEST_FILES "tests/*.cpp" "tests/*.h")
+file(GLOB_RECURSE ANIMATION_FILE "tests/*.cpp" "tests/*.h")
 
-set(TEST_EXECUTABLE "my-tests")
-add_executable(${TEST_EXECUTABLE} ${TEST_FILES} ${SOURCE_FILES})
+set(ANIMATION_EXECUTABLE "my-anim")
+add_executable(${ANIMATION_EXECUTABLE} ${ANIMATION_FILE} ${SOURCE_FILES})
 
-target_link_libraries(${TEST_EXECUTABLE} ${LIBS} STB_IMAGE GLAD IMGUI)
+target_link_libraries(${ANIMATION_EXECUTABLE} ${LIBS} STB_IMAGE GLAD IMGUI)
 
-set_target_properties(${TEST_EXECUTABLE} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BINARY_OUTPUT_DIR}/tests)
+set_target_properties(${ANIMATION_EXECUTABLE} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BINARY_OUTPUT_DIR})
+
 
 enable_testing()
-add_test(NAME RunTests COMMAND ${TEST_EXECUTABLE})
+add_test(NAME RunTests COMMAND ${ANIMATION_EXECUTABLE})

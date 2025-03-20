@@ -22,6 +22,7 @@ class Menu
 
         bool show_bone;
         bool set_initial_pos;
+        bool use_gpu;
 
         void render();
         void render_animation();

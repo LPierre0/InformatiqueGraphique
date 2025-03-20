@@ -12,13 +12,14 @@ Menu::Menu(GLFWwindow * window){
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
 
-    this->light_pos = glm::vec3(0.5f, 1.0f, 0.0f);
+    this->light_pos = glm::vec3(0.5f, 2.0f, 0.0f);
     this->light_look_at = glm::vec3(0.0f, -1.0f, 0.0f);
     this->inner_cutoff = 45.0f;
     this->outer_cutoff = 55.0f;
     this->camera_on_light = false;
     this->show_bone = false;
     this->set_initial_pos = true;
+    this->use_gpu = false;
 }
 
 
@@ -64,6 +65,8 @@ void Menu::render_animation(){
 
     ImGui::Checkbox("Voir les os", &show_bone);
     ImGui::Checkbox("Pose initiale", &set_initial_pos);
+    ImGui::Checkbox("Use gpu", &use_gpu);
+
 
 
     ImGui::End();
